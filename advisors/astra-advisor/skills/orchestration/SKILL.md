@@ -27,7 +27,14 @@ Report model and effort as observed evidence. If metadata does not expose a valu
 say that it is unobservable; never claim a runtime pin that was not confirmed. Read
 [the operations reference](references/operations.md) before the first delegation.
 
-Before selecting local workers, read [the public local routing policy](references/local-first.md). The installer must adapt the reference runtime to its own hardware before dispatch.
+Before selecting a cloud auxiliary or beginning substantial solo implementation,
+read the early decision gate in [the public local routing policy](references/local-first.md).
+Consider a useful bounded local contribution at this point, not only after deciding
+to delegate. Record the route or a concrete skip reason in the existing checkpoint.
+This does not require dispatch for trivial, sequential or already-covered work.
+If an auxiliary is selected, choose an existing delegation mode and preserve its
+primary prerequisites; never dispatch in a no-auxiliary solo mode.
+The installer must adapt the reference runtime to its own hardware before dispatch.
 
 Select the local execution contract deliberately. When the worker can answer from the
 exact supplied source capsule, require `execution:"inference"` and omit commands,

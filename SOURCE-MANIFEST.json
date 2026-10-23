@@ -34,7 +34,7 @@
     },
     {
       "path": "advisors/astra-advisor/skills/orchestration/SKILL.md",
-      "sha256": "a11537a5785e9acab762252c2a02cc9e1abd7675fa988b0b9712496f3334dab1",
+      "sha256": "bce74e5274a062bf6793681a5ac9f9c607cfd5f8a3145bf42f7866336f61538c",
       "origin": "astra-advisor customized MIT source"
     },
     {
@@ -124,7 +124,7 @@
     },
     {
       "path": "advisors/sol-advisor/skills/orchestration/SKILL.md",
-      "sha256": "f1be6cd56f7f1498e43c2f253d9260034c031bfe81b27d7e96bd8f121b8882c6",
+      "sha256": "6cfd1ea81faed387d97f141e2ad63f9056feacf727767cf4c447c3df25b4e866",
       "origin": "sol-advisor customized MIT source"
     },
     {
@@ -391,6 +391,16 @@
       "path": "reference-runtime/bin/advisor-local-mcp.mjs",
       "origin": "public source-only launcher guard",
       "sha256": "d0e72f7f10437a6bedb0f63647981a97f839b10bffde473c8b761e49b3cb790c"
+    },
+    {
+      "path": "advisors/astra-advisor/skills/orchestration/references/local-first.md",
+      "origin": "public local routing policy",
+      "sha256": "10e9ad4401d7698c2efa2e16e10a0576f3c042449161504c4fc579464aed5d26"
+    },
+    {
+      "path": "advisors/sol-advisor/skills/orchestration/references/local-first.md",
+      "origin": "public local routing policy",
+      "sha256": "10e9ad4401d7698c2efa2e16e10a0576f3c042449161504c4fc579464aed5d26"
     }
   ]
 }

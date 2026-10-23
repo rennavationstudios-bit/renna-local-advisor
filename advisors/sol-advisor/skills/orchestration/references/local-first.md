@@ -3,6 +3,51 @@
 Read the source kit's SETUP.md before enabling local workers. This reference
 replaces the original author's machine-specific policy in the public export.
 
+## Early local-contribution decision gate
+
+Before selecting a cloud auxiliary or beginning substantial solo implementation,
+identify an independent bounded contribution that could materially reduce primary
+work. Consider local workers here, not only after deciding to delegate. Do not
+reconsider on every short follow-up when scope and admission evidence are unchanged.
+
+Prefer a suitable direct worker when its capability, exact source scope, current
+admission and expected coordination/verification cost support that contribution.
+Examples include an independent source map, test proposal, bounded implementation,
+or first-pass review. Use inference-only for a supplied-source answer and tools only
+for actual discovery/edit/test needs. Use Halo coordination when decomposition and
+integration add value; an extra coordinator hop is not mandatory for direct GPU work.
+
+Retain solo for trivial or inherently sequential work, already-covered work,
+explicit no-local restrictions, or a capability mismatch. Inspect an existing
+delivery before deciding whether a narrowly scoped repair is needed; do not resend
+the whole assignment simply because it has not yet been accepted. Privacy rules
+remain route-specific: private-only/no-cloud is not itself a prohibition on local
+processing. Preserve exact source/privacy/ownership constraints.
+
+Use current resource/admission evidence when dispatching. For a managed on-demand
+worker, healthy:false with launchable:true can mean unloaded, not unavailable;
+use its existing guarded worker route, which revalidates admission. Never apply
+this exception to arbitrary stopped resident services. A busy reservation or failed
+admission is a valid fallback reason. Do not repeatedly poll, start/stop/retune
+resident models, or dispatch merely to meet a utilization quota.
+
+For each substantial work phase, add one compact decision to its existing checkpoint:
+local contribution and worker/receipt, or a concrete reason for solo/cloud
+(no independent work, already covered, explicit restriction, live reservation,
+unavailable capability, repeated request failure, or overhead exceeds useful work).
+Separate invocation, delivery, complete/partial/blocked outcome, and parent-verified
+use. Unknown history remains unknown; missing evidence is not a justified skip.
+Do not create a new telemetry service or record raw prompts/secrets for this purpose.
+
+The selected primary and effort, branded Advisor prerequisites and mode definitions,
+source-hash checks and external-action authority are unchanged. Choose an existing
+delegation mode if an auxiliary is selected; do not dispatch in a no-auxiliary solo
+mode. Required fresh native acceptance review remains mandatory even when a local
+first-pass review was useful. Expected savings never waive that review. This gate is
+guidance, not measured savings or proof of historical avoidable skips.
+
+## Dispatch and acceptance safeguards
+
 Keep the selected Codex primary and effort authoritative. A local contribution is
 an auxiliary proposal, not integration or acceptance authority. Preserve the
 selected Advisor's native role contracts and fresh independent review requirements.

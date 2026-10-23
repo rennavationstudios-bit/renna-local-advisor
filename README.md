@@ -36,6 +36,12 @@ runs the final checks, and owns acceptance. A local worker gets an exact objecti
 source scope, writable ownership where needed, and explicit checks. Independent
 assignments can run concurrently; shared hardware needs shared reservations.
 
+Before choosing a cloud auxiliary or starting substantial solo work, the Advisor
+considers whether a bounded local contribution would help. It records the chosen
+route or a concrete skip reason in the existing checkpoint. Trivial, sequential
+or already-covered work can stay solo; no worker-utilization quota is imposed.
+Existing mode, primary-model and review requirements still apply.
+
 Direct local assignments are the ordinary path. A separate local coordinator can
 read, divide a genuinely decomposable project among GPU workers, inspect their
 results, and return an integrated proposal. It is optional, not an extra hop every

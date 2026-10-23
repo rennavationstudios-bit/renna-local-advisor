@@ -44,6 +44,21 @@ Privacy patterns and source hashes are useful checks, not proof that arbitrary
 text contains no private information or that a later personalized copy is safe
 to publish. Recheck that copy, staged files and reachable history independently.
 
+## Early local-contribution decision gate
+
+Both orchestration entry points now consult their matching public local-first
+reference before cloud-auxiliary selection or substantial solo implementation.
+The references share the same gate: consider a useful bounded contribution,
+record a concrete route or skip reason, prefer suitable direct workers, and
+distinguish a guarded on-demand worker that can launch from an unavailable
+resident service. Existing model/effort prerequisites, no-auxiliary solo modes,
+launch guards and native acceptance-review requirements remain binding.
+
+This is an instruction-level correction. It does not establish future routing
+compliance, measured utilization, fewer historical skips or realized savings.
+No private audit counts, transcripts, identifiers or installation bindings are
+included. The source/privacy checks above apply to the updated public files.
+
 ## Documentation images
 
 Three generated conceptual illustrations were added after the initial source
