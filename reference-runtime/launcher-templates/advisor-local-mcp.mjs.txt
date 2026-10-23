@@ -1,0 +1,137 @@
+import '../src/public-source-guard.mjs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import { ADVISOR_RUNTIME_VERSION } from '../src/advisor-local-observability.mjs';
+import { AdvisorLocal, advisorRequestError } from '../src/advisor-local.mjs';
+import { delegateParallelWorkers } from '../src/advisor-parallel.mjs';
+import { createAdvisorToolServices, toolServicesOptionsSchema } from '../src/advisor-tool-services.mjs';
+import { applyAdvisorResult } from '../src/advisor-apply-result.mjs';
+import {createClientInspection,clientInspectionDefinitions} from '../src/advisor-client-inspection.mjs';
+import {createMcpRequestDispatcher,throwIfAdvisorCancelled} from '../src/advisor-cancellation.mjs';
+const inspections=createClientInspection();
+const service=new AdvisorLocal();
+const sharedPrivacy=inspections.privacyFor(process.cwd());
+const run=service.run.bind(service);service.run=(r,o={})=>run(r,{...o,privacyState:sharedPrivacy});
+const cliArgs=process.argv.slice(2);
+const gaiaProfile=cliArgs.length===2&&cliArgs[0]==='--profile'&&cliArgs[1]==='gaia-chat-local-workers';
+if(cliArgs.length&&!gaiaProfile)throw new Error('UNKNOWN_MCP_PROFILE');
+const gaiaTools=new Set(['inspection_discover','inspection_call','context7_docs','cerebras_research','local_status','preflight_local_request','delegate_to_r9700','delegate_to_r9700b','delegate_to_rtx3090','delegate_parallel_workers','apply_worker_result']);
+const schema={type:'object',additionalProperties:false,required:['role','task','directory'],properties:{
+  role:{type:'string',enum:['halo_scout','halo_reviewer','r9700_builder','r9700_tester','r9700b_builder','r9700b_tester','rtx3090_scout','rtx3090_reviewer','rtx3090_builder','rtx3090_tester']},task:{type:'string',maxLength:16000},directory:{type:'string'},
+  sourceFiles:{type:'array',items:{type:'string'},maxItems:64,description:'Exact relative paths. Union with allowedFiles: at most 64 files and 180000 UTF-8 bytes total; lossless UTF-8 only. Use preflight only when scope or command validity is uncertain; dispatch already validates before inference. Split large read-only evidence with provenance; never truncate writable source.'},allowedFiles:{type:'array',items:{type:'string'},maxItems:64,description:'Exact owned writable paths; included in the same 64-file / 180000-byte source budget. All Scout/reviewer roles require [].'},
+  mode:{type:'string',enum:['auto','local-only','cloud-only','halo-only','r9700-only','r9700b-only','rtx3090-only']},profile:{type:'string',enum:['auto','large','small'],description:'Advanced RTX3090 override. Normally omit; host chooses a qualified profile using live memory guards.'},timeoutMs:{type:'integer',minimum:1000,maximum:5400000,description:'Halo coordinator: admission timeout, then a no-progress window renewed by successful new tool work from Halo or its workers; not a total wall-clock cutoff. Step/call limits and child/command deadlines still apply. Other routes retain total timeouts: explicit halo-only Scout/reviewer up to 5400000 ms, other workers up to 1200000 ms.'},maxOutputTokens:{type:'integer',minimum:128,maximum:16384,description:'Advanced explicit override. Normally omit: the host selects an allowance after checking the live profile and validates the complete context.'},category:{type:'string',maxLength:80},
+  execution:{type:'string',enum:['tools','inference'],default:'inference',description:'Defaults to inference: answer or propose from supplied sources without tools. Explicit tools is required only for material discovery, edits, tests or approved external tools; commands, services, scope and role are validated before dispatch. No field or engine implicitly enables tools.'},
+  sensitiveSourceHandling:{type:'string',enum:['local-only-transient'],description:'Explicit local-only authorization for credential-shaped source contents. Requires a local-only or exact-worker-only mode, inference execution, at least one source file, no writable files/commands/external tools, encrypted or host-local fixed-worker transport, and secret-free metadata-only persistence. Never put credential values in this request field, task, paths, or command line.'},
+  engine:{type:'string',enum:['direct','hermes'],description:'Direct is the normal default. Hermes is the optional installed multi-step agent harness, using the same bounded tools, exact ownership and shared GPU leases. Hermes requires execution tools.'},
+  commands:{type:'array',description:'Offline argv only; no shell, install/deploy or node -e/--eval/-p/--print. Use node --check <file.js>, node --test <test.mjs> or node <scoped-test-file.mjs>. Custom test files must belong to authorized source/write scope. Correct REQUEST_REPAIR_REQUIRED fields once, then dispatch; retain required verification.',maxItems:12,items:{type:'object',additionalProperties:false,required:['id','argv'],properties:{id:{type:'string'},argv:{type:'array',items:{type:'string'}},timeoutMs:{type:'integer',minimum:1000,maximum:300000}}}},
+  maxSteps:{type:'integer',minimum:1,maximum:32},maxToolCalls:{type:'integer',minimum:1,maximum:64},
+  toolServices:toolServicesOptionsSchema,
+}};
+const parallelRequestSchema={...schema,required:[...schema.required,'worker','mode','execution'],properties:{...schema.properties,
+  worker:{type:'string',enum:['r9700','r9700b','rtx3090']},
+  mode:{type:'string',enum:['r9700-only','r9700b-only','rtx3090-only'],description:'Must match worker exactly; parallel calls never fall back to another worker.'},
+  engine:{type:'string',enum:['direct'],description:'Parallel dispatch uses the existing direct Advisor service.'},
+}};
+const parallelSchema={type:'object',additionalProperties:false,required:['requests'],properties:{
+  requests:{type:'array',minItems:1,maxItems:3,items:parallelRequestSchema,
+    description:'One to three unique explicit requests across r9700, r9700b and rtx3090. All requests and source snapshots are validated before any worker starts.'},
+}};
+schema.properties.haloModel={type:'string',enum:['flash','superqwen'],description:'Halo identity: Flash-Next coordinator default or explicit SuperQwen27B alternate. Safe selection queues behind active assignments.'};
+schema.properties.thinking={type:'boolean',description:'Use documented thinking; coordinator defaults true. Trivial requests may disable it.'};
+schema.properties.role.enum.push('halo_coordinator');
+const projectSchema={...schema,required:['task','directory'],properties:{...schema.properties,role:{type:'string',enum:['halo_coordinator']},mode:{type:'string',enum:['halo-only']},execution:{type:'string',enum:['tools']},engine:{type:'string',enum:['direct']}}};
+const publicLookupProperties={directory:{type:'string',description:'Absolute current project directory for host privacy policy checks.'}};
+export const toolDefinitions=[
+  {name:'cancel_local_turn',description:'Request cancellation of active Advisor worker requests in this host-owned thread and exact turn. Event is a lifecycle label, not proof of human authorization. Reports delivered signals and request drain counts; drained does not certify backend idle or release retained claims.',inputSchema:{type:'object',additionalProperties:false,required:['event','sessionId','turnId'],properties:{event:{type:'string',enum:['Interrupt']},sessionId:{type:'string',minLength:1,maxLength:128},turnId:{type:'string',minLength:1,maxLength:128}}}},
+  ...clientInspectionDefinitions,
+  {name:'context7_docs',description:'Look up current library/API documentation through Context7: resolves the library then queries its documentation. Ask a short public question as needed; never include private code or secrets. Honor offline/private-only instructions.',inputSchema:{type:'object',additionalProperties:false,required:['directory','libraryName','query'],properties:{...publicLookupProperties,libraryName:{type:'string',minLength:1,maxLength:100},query:{type:'string',minLength:1,maxLength:500}}}},
+  {name:'cerebras_research',description:'Research a short public question through existing Cerebras Qwen 3.8/Parallel Search fast mode, with cited evidence. Never include private context, source code or secrets. Honor offline/private-only instructions. No model routing change.',inputSchema:{type:'object',additionalProperties:false,required:['directory','task'],properties:{...publicLookupProperties,task:{type:'string',minLength:1,maxLength:500}}}},
+  {name:'apply_worker_result',description:'Apply a reviewed delivered proposal into its original authorized directory using the constrained applier. DELIVERED means returned, not accepted: inspect completion, files and tests. For partial/blocked work reviewedPartial:true explicitly confirms primary review; it does not certify tests passed. Original source hashes and writable scope must match. Run authoritative tests after applying. No publication authority.',inputSchema:{type:'object',additionalProperties:false,required:['receiptId','directory'],properties:{receiptId:{type:'string'},directory:{type:'string'},reviewedPartial:{type:'boolean',description:'Set true only after the primary reviews the partial changes and remaining failures.'}}}},
+  {name:'delegate_project_to_halo',description:'Give a bounded project to Halo for useful local contributions. It delegates to independent GPUs, allows one targeted writable repair per GPU and bounded verification, then returns source-bound complete/partial/blocked artifacts with worker evidence. Five-minute soft handoff target checked between completed operations; no new child after that, no interruption of an active child. Primary retains useful changes and repairs only remaining defects. No caller edits, auto-acceptance or nested coordinator. Prefer direct GPU tools for small work.',inputSchema:projectSchema},
+  {name:'preflight_local_request',description:'Check request and source snapshot before delegation: exact scope, 180000 aggregate UTF-8 bytes, lossless encoding, source hashes and the applicable secret policy. Explicit sensitiveSourceHandling is local-only, read-only, transient, and direct-worker only. No inference, credentials, health calls, leases or source writes. Returns READY or actionable repair/error; execution still revalidates workspace, health and model context.',inputSchema:schema},
+  {name:'delegate_to_halo',description:'Local-first Halo Scout/reviewer via SuperQwen on 8060S. Use execution tools for real read/search and relevant approved documentation/retrieval/browser tools. Scout/reviewer cannot edit or execute commands. Supply exact source paths. Independent of R9700; native continuation on failure.',inputSchema:schema},
+  {name:'delegate_to_r9700',description:'Independent R9700 Qwen builder/tester. Use execution tools for real file tools and isolated edits in exact allowedFiles, plus actual offline test commands selected by parent-owned command IDs. Returns host-derived changes and evidence; never edits caller. May run concurrently with Halo.',inputSchema:schema},
+  {name:'delegate_to_r9700b',description:'Independent R9700B Qwen builder/tester. Use execution tools for real file tools and isolated edits in exact allowedFiles, plus actual offline test commands selected by parent-owned command IDs. Returns host-derived changes and evidence; never edits caller. May run concurrently with R9700A, Halo and RTX3090.',inputSchema:schema},
+  {name:'delegate_to_rtx3090',description:'Independent on-demand RTX3090 CUDA worker. Qualified Scout/reviewer is read-only; builder/tester requires actual profile qualification. Large/small profiles share one GPU reservation with EVIE and Nemotron; no fake profile concurrency. Verified model identity and owned-child shutdown precede delivery.',inputSchema:schema},
+  {name:'delegate_to_local_fleet',description:'Existing Fleet registry and leases select Halo for analysis/review, R9700 for bounded build/tests, or qualified on-demand RTX3090; fallback preserves role semantics and routing restrictions. Full durable Fleet workflow remains available through fleet CLI.',inputSchema:schema},
+  {name:'delegate_parallel_workers',description:'Run one to three unique explicit R9700A, R9700B and RTX3090 requests concurrently. All requests and source snapshots are validated first. Each stays in its matching worker-only mode, so none can fall back to another worker. Disjoint allowedFiles may share a parent directory; overlapping writes are rejected. Returns each host receipt and never authorizes integration.',inputSchema:parallelSchema},
+  {name:'local_status',description:'Halo, R9700 and RTX3090 model/health/slot/lease status, recent delegations and failures. RTX3090 status never starts a model.',inputSchema:{type:'object',additionalProperties:false,properties:{}}},
+];
+const send=value=>process.stdout.write(JSON.stringify(value)+'\n');
+const defaultService=service;
+// Injection seam for offline protocol tests; the running server uses its own service.
+export async function handle(m,{signal,service=defaultService,cancelLocalTurn}){
+  try{
+    throwIfAdvisorCancelled(signal);
+    let result;
+    if(m.method==='initialize')result={protocolVersion:m.params?.protocolVersion??'2025-06-18',capabilities:{tools:{}},serverInfo:{name:'advisor-local',version:ADVISOR_RUNTIME_VERSION},instructions:'For suitable ordinary engineering work consider Halo Scout/reviewer, R9700 builder/tester, and the independently owned on-demand RTX3090 worker before paid auxiliaries. RTX3090 Scout/reviewer is read-only; builder/tester requires qualification in both its profile manifest and registry. Its large and small profiles share one GPU reservation with EVIE and Nemotron, so they cannot run concurrently. Prefer execution inference with exact supplied sourceFiles when the assignment is self-contained and needs no file discovery, edits, commands, browser, docs, web, or retrieval. Use execution tools only when one of those capabilities is materially required, with exact sourceFiles and allowedFiles, parent-selected test commands, and relevant toolServices. Calls on independent hardware may run concurrently. The host owns token budgets, output allowances, model-profile selection and memory checks. Omit maxOutputTokens and profile in ordinary delegation. Send concise goals, exact owned files and checks; workers can inspect implementation details. Do not estimate code lines, token counts, VRAM or fallback sizes. Dispatch after the first targeted inspection; respond to an actual host rejection instead of speculating about one. Use delegate_parallel_workers for disjoint R9700 and RTX3090 assignments. Explicit halo-only Scout/reviewer long-prefill workflows may use up to 5400000 ms; R9700, RTX3090 and other routes remain capped at 1200000 ms. Ordinary defaults and individual tool and command deadlines remain separate. Use local_status without starting a model. Primary model/effort stays selected; source-bound results are advisory. Inspect isolated changes, check original hashes, integrate and verify in primary. On CLOUD_CONTINUATION_REQUIRED continue via native Codex, never an implicit paid API. Honor local-only/cloud-only, exact-worker-only modes, and explicit RTX3090 profile choices. local_status reports each resource.'};
+    else if(m.method==='ping')result={};
+    else if(m.method==='tools/list')result={tools:toolDefinitions.filter(t=>!gaiaProfile||gaiaTools.has(t.name))};
+    else if(m.method==='tools/call'){
+      const name=m.params?.name;let value;
+      if(gaiaProfile&&!gaiaTools.has(name))throw new Error('UNKNOWN_TOOL');
+      if(name==='cancel_local_turn'){
+        if(typeof cancelLocalTurn!=='function')throw Object.assign(new Error('CANCELLATION_CONTEXT_REQUIRED'),{code:'CANCELLATION_CONTEXT_REQUIRED'});
+        value=await cancelLocalTurn(m.params.arguments);
+        // Interrupt hooks accept their lifecycle output schema only. Keep the
+        // diagnostic counts structured; empty JSON text is a valid hook result.
+        return {jsonrpc:'2.0',id:m.id,result:{content:[{type:'text',text:'{}'}],structuredContent:value}};
+      }
+      if(name==='delegate_parallel_workers'&&Array.isArray(m.params.arguments?.requests))m.params.arguments={...m.params.arguments,requests:m.params.arguments.requests.map(inspections.constrainRequest)};
+      else if(name?.startsWith('delegate_')||name==='preflight_local_request')m.params.arguments=inspections.constrainRequest(name==='delegate_project_to_halo'?{...m.params.arguments,execution:'tools'}:m.params.arguments);
+      if(gaiaProfile&&['delegate_to_r9700','delegate_to_r9700b','delegate_to_rtx3090','preflight_local_request'].includes(name)){
+        const request=m.params.arguments??{},worker=name==='preflight_local_request'?request.role?.split('_')[0]:name.slice('delegate_to_'.length);
+        if(!['r9700','r9700b','rtx3090'].includes(worker)||request.mode!==`${worker}-only`||!request.role?.startsWith(`${worker}_`)||(request.engine!==undefined&&request.engine!=='direct'))throw Object.assign(new Error('EXPLICIT_WORKER_ONLY_REQUIRED'),{code:'EXPLICIT_WORKER_ONLY_REQUIRED'});
+      }
+      if(['context7_docs','cerebras_research'].includes(name)){
+        const args=m.params.arguments??{};
+        const keys=name==='context7_docs'?['directory','libraryName','query']:['directory','task'];
+        if(Object.keys(args).length!==keys.length||Object.keys(args).some(k=>!keys.includes(k))||typeof args.directory!=='string')throw new Error('INVALID_LOOKUP_REQUEST');
+        const {directory,...question}=args;
+        const lookup=await createAdvisorToolServices({signal,workspaceRoot:directory,privacyState:inspections.privacyFor(directory),options:{docs:true,research:true,asNeeded:true}});
+        try{value=await lookup.execute(name==='context7_docs'?'docs_query':name,question);}finally{await lookup.close();}
+      }
+      else if(name==='inspection_discover')value=await inspections.discover(m.params.arguments);
+      else if(name==='inspection_call')value=await inspections.call(m.params.arguments);
+      else if(name==='local_status')value=await service.status({signal});
+      else if(name==='apply_worker_result')value=await applyAdvisorResult(m.params.arguments??{},service);
+      else if(name==='delegate_project_to_halo'){
+        const {engine='direct',...request}=m.params.arguments??{};
+        if(engine!=='direct')throw new Error('COORDINATOR_ENGINE_INVALID');
+        value=await service.run({timeoutMs:1200000,maxOutputTokens:8192,maxSteps:24,maxToolCalls:48,...request,role:'halo_coordinator',mode:'halo-only',worker:'halo',execution:'tools'},{signal});
+      }
+      else if(name==='delegate_parallel_workers'){
+        const args=m.params.arguments;
+        if(!args||typeof args!=='object'||Array.isArray(args)||Object.keys(args).length!==1||!Object.hasOwn(args,'requests'))throw Object.assign(new Error('INVALID_PARALLEL_REQUEST'),{code:'INVALID_PARALLEL_REQUEST'});
+        value=await delegateParallelWorkers({service,requests:args.requests,signal});
+      }
+      else {
+        const worker={delegate_to_halo:'halo',delegate_to_r9700:'r9700',delegate_to_r9700b:'r9700b',delegate_to_rtx3090:'rtx3090',delegate_to_local_fleet:'fleet'}[name];if(!worker&&name!=='preflight_local_request')throw new Error('UNKNOWN_TOOL');
+        const {engine='direct',...request}=m.params.arguments??{};
+        if(!['direct','hermes'].includes(engine))throw new Error('UNKNOWN_ENGINE');
+        let selected=service;
+        if(engine==='hermes'){
+          if(request.execution!=='tools')throw Object.assign(new Error('HERMES_REQUIRES_TOOLS'),{code:'HERMES_REQUIRES_TOOLS'});
+          const {runHermesToolLoop}=await import('file:////SETUP_REQUIRED/path-1');
+          selected=new AdvisorLocal({toolLoop:runHermesToolLoop});
+        }
+        value=name==='preflight_local_request'?await selected.preflight(request,{signal}):await selected.run({...request,worker},{signal,privacyState:sharedPrivacy});
+      }
+      result={content:[{type:'text',text:JSON.stringify(value)}],structuredContent:value,isError:['ERROR','REQUEST_REPAIR_REQUIRED','PREFLIGHT_FAILED','FAILED','CANCELLED'].includes(value.status)};
+    }else{return {jsonrpc:'2.0',id:m.id,error:{code:-32601,message:'Method not found'}};}
+    return {jsonrpc:'2.0',id:m.id,result};
+  }catch(e){const value=advisorRequestError(e);return {jsonrpc:'2.0',id:m.id,result:{content:[{type:'text',text:JSON.stringify(value)}],structuredContent:value,isError:true}};}
+}
+const requests=createMcpRequestDispatcher({execute:handle,send});
+const close=async()=>{await requests.close();await inspections.close();};
+const entryPath=process.argv[1]?path.resolve(process.argv[1]):'';
+const modulePath=fileURLToPath(import.meta.url);
+if((process.platform==='win32'?entryPath.toLowerCase()===modulePath.toLowerCase():entryPath===modulePath)){
+process.stdin.on('end',()=>{void close();});
+process.stdin.on('error',()=>{void close();});
+// Each request has its own promise; never await a model inside the framing loop.
+let buffer='';process.stdin.setEncoding('utf8');process.stdin.on('data',chunk=>{
+  buffer+=chunk;if(Buffer.byteLength(buffer)>1048576){buffer='';return;}
+  let index;while((index=buffer.indexOf('\n'))>=0){const line=buffer.slice(0,index);buffer=buffer.slice(index+1);try{void requests.dispatch(JSON.parse(line));}catch{send({jsonrpc:'2.0',id:null,error:{code:-32700,message:'Parse error'}});}}
+});
+}

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Recipient setup inventory; wire into the reference code during adaptation.",
+  "primary": "preserve-current-selection",
+  "stateDirectory": null,
+  "executionDirectory": null,
+  "workers": [],
+  "workerFields": {
+    "id": "recipient-chosen-id",
+    "roles": ["scout", "reviewer", "builder", "tester"],
+    "endpoint": null,
+    "model": null,
+    "credentialEnvironmentVariable": null,
+    "physicalResourceId": null,
+    "verifiedContextTokens": null,
+    "maxConcurrentAssignments": 1,
+    "qualified": false
+  }
+}

@@ -1,0 +1,27 @@
+import '../src/public-source-guard.mjs';
+import fs from 'node:fs/promises';
+import { AdvisorLocal, advisorRequestError } from '../src/advisor-local.mjs';
+const service=new AdvisorLocal();
+try {
+  const command=process.argv[2]??'status';let result;
+  if(command==='status')result=await service.status();
+  else if(command==='enable'||command==='disable')result=await service.setEnabled(command==='enable');
+  else if(['run','halo','r9700','rtx3090','fleet','preflight'].includes(command)){
+    const arg=process.argv.indexOf('--request');if(arg<0)throw new Error('REQUEST_REQUIRED');
+    const file=process.argv[arg+1];let text;
+    if(file==='-'){const chunks=[];for await(const chunk of process.stdin){chunks.push(chunk);if(chunks.reduce((n,x)=>n+x.length,0)>262144)throw new Error('REQUEST_TOO_LARGE');}text=Buffer.concat(chunks).toString();}
+    else {const stat=await fs.stat(file);if(stat.size>262144)throw new Error('REQUEST_TOO_LARGE');text=await fs.readFile(file,'utf8');}
+    const request=JSON.parse(text);if(['halo','r9700','rtx3090','fleet'].includes(command))request.worker=command;
+    const engineArg=process.argv.indexOf('--engine');const engine=engineArg<0?'direct':process.argv[engineArg+1];
+    if(!['direct','hermes'].includes(engine))throw new Error('UNKNOWN_ENGINE');
+    let selected=service;
+    if(engine==='hermes'){
+      if(request.execution!=='tools')throw Object.assign(new Error('HERMES_REQUIRES_TOOLS'),{code:'HERMES_REQUIRES_TOOLS'});
+      const {runHermesToolLoop}=await import('file:////SETUP_REQUIRED/path-1');
+      selected=new AdvisorLocal({toolLoop:runHermesToolLoop});
+    }
+    result=await (command==='preflight'?selected.preflight(request):selected.run(request));
+    if(['ERROR','REQUEST_REPAIR_REQUIRED'].includes(result.status))process.exitCode=1;
+  }else throw new Error('UNKNOWN_COMMAND');
+  process.stdout.write(JSON.stringify(result)+'\n');
+}catch(e){process.stdout.write(JSON.stringify(advisorRequestError(e))+'\n');process.exitCode=1;}

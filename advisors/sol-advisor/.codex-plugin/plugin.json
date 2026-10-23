@@ -1,0 +1,21 @@
+{
+  "name": "sol-advisor",
+  "version": "0.8.1+renna.2",
+  "description": "Codex-native selective routing plus an explicit-only UltraBurn mode for bounded high-compute engineering runs.",
+  "author": {"name": "Daniel McAteer", "url": "https://github.com/DannyMac180"},
+  "homepage": "https://github.com/DannyMac180/sol-advisor#readme",
+  "repository": "https://github.com/DannyMac180/sol-advisor",
+  "license": "MIT",
+  "keywords": ["codex", "orchestration", "multi-agent", "gpt-6"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Sol Advisor",
+    "shortDescription": "Risk-gated Sol delivery with a separate manual UltraBurn mode.",
+    "longDescription": "Sol Advisor keeps GPT-6.1 Sol / High in the primary session for architecture, verification, and acceptance. Before the first task tool call, Sol declares a machine-auditable SELECTIVE ROUTE: solo is the default; delegate may select role-pinned GPT-6 Luna / Max and Terra / High implementers for independently owned, non-substantial work; audit uses a fresh read-only GPT-6.1 Sol / High review; full uses the useful set of selected implementers and a fresh review for substantial delegated work or when breadth or risk warrants it. Parallelism follows dependencies, disjoint ownership, specialization, and observed runtime capacity; it has no policy headcount ceiling. Public role metadata is authoritative and missing, conflicting, unavailable, or unobservable routing evidence fails closed. A separate explicit-only UltraBurn skill requires GPT-6.1 Sol / Ultra and adds time-bounded discovery, durable status/stop state, isolated workstreams, and fresh read-only Ultra review without changing normal routes.",
+    "developerName": "Daniel McAteer",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Write"],
+    "websiteURL": "https://github.com/DannyMac180/sol-advisor",
+    "defaultPrompt": ["Use $sol-advisor:orchestration to declare a SELECTIVE ROUTE before task tools, then build and verify this feature.", "Use solo by default; use audit for substantial root implementation, and full for substantial delegated work or when breadth or risk warrants it.", "Use $sol-advisor:ultraburn only when I explicitly request a manual high-compute plan, run, status, or stop operation."]
+  }
+}

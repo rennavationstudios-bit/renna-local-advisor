@@ -1,0 +1,396 @@
+{
+  "format": 1,
+  "snapshot": "2026-10-23",
+  "files": [
+    {
+      "path": "advisors/astra-advisor/.codex-plugin/plugin.json",
+      "sha256": "1567199f13bea81e7141d99b90ce493a7f8b2dc31215ebba16147033e8b3d14d",
+      "origin": "astra-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/astra-advisor/examples/illustrative-usage.json",
+      "sha256": "2ec005b082ddb976d9126167a2e7875d268d3741be517b29e7d194e00f7a7558",
+      "origin": "astra-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/astra-advisor/pricing/2026-09-04.json",
+      "sha256": "2b238d88bc54930f85eac96f3418638506b922f17d65be044b1167d584f87976",
+      "origin": "astra-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/astra-advisor/scripts/cost_receipt.py",
+      "sha256": "9b4e28958567c7930329b62b24e271fef1a2aed06f35d939682de85f588ab3a0",
+      "origin": "astra-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/astra-advisor/scripts/verify.sh",
+      "sha256": "549717e20b42b56c9cafd31958e4b18008029814684ae9dbba3e5af1ca968267",
+      "origin": "astra-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/astra-advisor/skills/orchestration/references/operations.md",
+      "sha256": "8774c1f8353a5a65887ae7a171d09d197289b0c16c648b4bf3a0cd6565d07858",
+      "origin": "astra-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/astra-advisor/skills/orchestration/SKILL.md",
+      "sha256": "a11537a5785e9acab762252c2a02cc9e1abd7675fa988b0b9712496f3334dab1",
+      "origin": "astra-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/astra-advisor/tests/test_cost_receipt.py",
+      "sha256": "b7017ceaebd0026845da62b454a8c2b1be8f2a091e82df4bb2c3143272f1f8c8",
+      "origin": "astra-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/astra-advisor/LICENSE",
+      "sha256": "9bd605a064788e28a3961c76ba61142bed298270bfa96b06028ac450821a5258",
+      "origin": "astra-advisor upstream MIT license"
+    },
+    {
+      "path": "advisors/sol-advisor/.codex-plugin/plugin.json",
+      "sha256": "154570b2bfcf62ff1c0e39fb435c3bf18cd73787f17d9c3aa25b6b9feb84a9d0",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/agents/sol-advisor-luna-implementer.toml",
+      "sha256": "cdf9d5e9b941e2f37c62b4083b05a7206e9ab632e0f871fa6a4a863f64d1d097",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/agents/sol-advisor-sol-reviewer.toml",
+      "sha256": "83fa964b13e43f59794e857bf79856960c30dff3a000e805c9cf25f4b2111e2e",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/agents/sol-advisor-terra-implementer.toml",
+      "sha256": "77ed2f36bb149da5d9032230c3d6f5e5cd56b059b3fa5f59085249bba06e1f3a",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/agents/sol-advisor-ultraburn-reviewer.toml",
+      "sha256": "5e77cbb7e9aeb277c675fa21ea66ab344555c15629fd906612a5b9dab5fbe5db",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/profiles/ultraburn.config.toml",
+      "sha256": "5d820e6e910225518989acee18bea03d921b3ff4fb78af463f8d4a42715f7a39",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/scripts/inspect-agent-runtime.sh",
+      "sha256": "d73f9a3b19da121e8fd5ec71e520daac5a92ecbb6e86d663f44490e4a0ca3824",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/scripts/inspect-primary-runtime.sh",
+      "sha256": "681973c9158ac83d1cacbb3ac03d5324c96d4f78caad855c92fd4b0c8ac54f24",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/scripts/install-agents.sh",
+      "sha256": "59e1dbda96f5614754bf58fa84850901f9a3a41b4480824bc3bd97911cec7bcb",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/scripts/test-gpt6-migration.py",
+      "sha256": "45fa5fb43de5ab80e97424526be8fc40396b7d53c739c3ca69946b2b245e1c80",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/scripts/test-ultraburn-state.py",
+      "sha256": "19a4ee8b518848b3ff56719c8b6324dd905ce0edddb4a5900dcd67c6c2f8899b",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/scripts/ultraburn-state.py",
+      "sha256": "3f2c91293084c90835073650bfe23397f44f328e59039473b701724d6d741957",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/scripts/verify.sh",
+      "sha256": "ebcd89ca4ff6a13de92c5bfd00602abbe6a6414f39ba85d8b0bae65756906822",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/skills/orchestration/references/operations.md",
+      "sha256": "edab5cc4ec8c12a7baf133b3708e1f224efb74511d309e8aa555482d93931418",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/skills/orchestration/references/role-contracts.md",
+      "sha256": "5a2f593df2921af1635891cce08b043808edd7b125b917b0423f69d8595f2843",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/skills/orchestration/SKILL.md",
+      "sha256": "f1be6cd56f7f1498e43c2f253d9260034c031bfe81b27d7e96bd8f121b8882c6",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/skills/ultraburn/references/state-contract.md",
+      "sha256": "c44c9beae523a6b75ba056687756610ab93d8533476881fe0a88d132a604bf41",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/skills/ultraburn/SKILL.md",
+      "sha256": "a63eb6f95b7ec98a28b532508ac32c01bb9bf9c3e7194479ca4d18c4c24a9f3a",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/tests/fixtures/v070-renna1/sol-advisor-luna-implementer.toml",
+      "sha256": "12fa9180a292876e6731bc325779123bcd931c3caa902fbf90d676a31833be84",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/tests/fixtures/v070-renna1/sol-advisor-sol-reviewer.toml",
+      "sha256": "0333acf0ef562bcfebd06009ac09bd1dd8cbc04c4cf28e08e9e049bd8bf202d2",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/tests/fixtures/v070-renna1/sol-advisor-ultraburn-reviewer.toml",
+      "sha256": "c5bc0eb66e9ac84ccf1a8b6a75a25fc1b12a9bb37ef4f3807edb5c1a9f4b7b1e",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/tests/fixtures/v080-renna1/sol-advisor-sol-reviewer.toml",
+      "sha256": "18cb3a5c08eb3f103f07626c944b9ba8978b20c5a706cf4579e07a5fded18e0a",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/tests/fixtures/v080-renna1/sol-advisor-ultraburn-reviewer.toml",
+      "sha256": "d64f7bc25e379650a6945e32debebeed52c291bb9fae6a191bf786672f25e535",
+      "origin": "sol-advisor customized MIT source"
+    },
+    {
+      "path": "advisors/sol-advisor/LICENSE",
+      "sha256": "9bd605a064788e28a3961c76ba61142bed298270bfa96b06028ac450821a5258",
+      "origin": "sol-advisor upstream MIT license"
+    },
+    {
+      "path": "reference-runtime/launcher-templates/advisor-local-mcp.mjs.txt",
+      "sha256": "4c22b23312b180c0ce44d231ba7b1583d79643938ab4c89760d3573d068118ee",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/advisor-cancellation.mjs",
+      "sha256": "7dfdbe168ab03d163e98a4702dd981016e854c17827d39c7b4ee1111e2c036a1",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/advisor-client-inspection.mjs",
+      "sha256": "f79e0cd925ba266f7570e976c32403fabc8b9d0461223dc0ffd543febba5d766",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/cerebras-workspace-policy.mjs",
+      "sha256": "06b788f511415794afe660ae1e03ea98a32a20bbfa6c8f08fb357612426bfd4f",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/bounded-local-file.mjs",
+      "sha256": "f775b923891090771f75fe8fef8edb9479c203e34cd155da9f7371ab13187267",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/cerebras-fast.mjs",
+      "sha256": "72f6970a48e8fd96150004a39103b6435502884921de1ae3e7f8c61ca2859526",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/util.mjs",
+      "sha256": "45da8af78e2a386a17e0e4db9ed89dd5bbc8ed03f0dd84cceef9c8d4f2eb73f8",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/errors.mjs",
+      "sha256": "f540b09a3e80864120db22da65d8a8551c574181b42a09dcdc41d526ba4af9c0",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/receipt-store.mjs",
+      "sha256": "cd2019b88f53577d6db8f462382319aefb62bcc5c7a3c1d34afc98e0b796db9a",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/state-machine.mjs",
+      "sha256": "d65703d340e24249f8eff0f477be77b02b3849f1d45e7fb9b6430ae4dded1dfc",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/schemas.mjs",
+      "sha256": "cfba2c3ec2a373b22ae1b639e3fdc53340f5f1607f94dbf969a7fed19014fed1",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/scope.mjs",
+      "sha256": "0bf2789e43e18cd2815f06ff2792a1e59628a6ffcfa9c8133c98fed9c6f57353",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/litellm-client.mjs",
+      "sha256": "fc73362898e67306fa98b30bacd10c0d94d4bf12a71e64a77a71ea5519ca5e25",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/cerebras-direct-client.mjs",
+      "sha256": "1305ad1435ea33f685d0ab7fc9a11cce6e2debd1c47db2d20f8a926dc012e5a8",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/advisor-tool-services.mjs",
+      "sha256": "fe0b1be281fbd266d9e742124b592d749da66f5edf6b718470fa23dcc7b3a914",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/advisor-git-inspection.mjs",
+      "sha256": "395ddd82f3d69462c2e6b0b65e742df27cb5458ef2682a2375587cfeaa2463c2",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/exa-mcp-client.mjs",
+      "sha256": "138c0490507782ac01f1a788a6d0141a982a010ae184284ee2bba8431db77c5a",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/advisor-apply-result.mjs",
+      "sha256": "091c5c95b1ea2a181169ef418d7c046eb13d1f1c419a75911611c23c637351b2",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/controller-edit-applier.mjs",
+      "sha256": "012b30b93c87991b9041e00176524d668c4c9fd173d03a783b4cec131833d5ad",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/writer-sandbox.mjs",
+      "sha256": "ecea2f2386c93debeb62f8897cc21188c53913b80bd58e26a835c7d2b61ceecf",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/advisor-parallel.mjs",
+      "sha256": "0069bb4ec70bf6857f9f614af19f5a0fee074bb260790d4d66a9380965b0beb7",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/advisor-local.mjs",
+      "sha256": "2bca925e50caab8599f080c64e1084da37fc65993b4698c1c8c471a74a00d865",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/advisor-tool-loop.mjs",
+      "sha256": "50e6bcab51014b6d8dfade772c9596e00407bce8932f56fc134a619772fcbffc",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/advisor-coordinator-tools.mjs",
+      "sha256": "6f0704dd7e0ee754660eb3aed611d4fe7bffd9859ee1e23c22fc80d3188d6206",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/advisor-context.mjs",
+      "sha256": "3af329a1962cd48811dada866768be7a0d97f705edaf38565bbf3d45990cce15",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/halo-auth.mjs",
+      "sha256": "6c2f6b63275dfb04852ec9a779bfaefafe0510dbf2e160666424b1b18665373e",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/advisor-tool-workspace.mjs",
+      "sha256": "4ff2ae88d2c1254ee14f8c641fde02f62bc6abebfb5bf5dd43bc58828ee0ee93",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/cerebras-blast-worktree.mjs",
+      "sha256": "2b5e621898749e98135025d1c6e7197558ff9a8140ef177b12c3e77c4f2d3bc2",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/halo-model-selection.mjs",
+      "sha256": "8cbc5148ff3629f7fe815391df16f034effeb45eaf58e8c452585ccaae0e5ac3",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/advisor-radio-priority.mjs",
+      "sha256": "8501bb74956c33a4b9b7f67b6aca0217711e2cc591fc5236ebf683e1573870d0",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/advisor-sensitive-transport.mjs",
+      "sha256": "c6deabb13e7b832d659112b2ab15e8aae4189374de5ac536047cbc3e03b02aeb",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/advisor-rtx3090-runtime.mjs",
+      "sha256": "ea86e064a16874639dd03d8d0f671b9905f2a8a8aafbdfafa4f76556abf7fc7f",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/advisor-resource-guard.mjs",
+      "sha256": "6290f966422ad39e06e003873d2cb2bf76360a86667062a4982e5960da44e7e8",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/gpu-reservation.mjs",
+      "sha256": "366655877777aa0c7e0ed6055f3e856448c5ba76d4f7b0af7c8a781858a7ceac",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/advisor-local-observability.mjs",
+      "sha256": "5b76ff8d22949784d71eedd0a5c9cd7fca4867e2c136890f8fb86c26944eb0c1",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/advisor-local-status.mjs",
+      "sha256": "d840249aa45bdd01e4551e623d00def5e5d2bb5264fb7ef819fe6d1d5872148d",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/controller-mediated-edit.mjs",
+      "sha256": "b358d9b49d516efc3a154bcbb049c4a6c93cfae6b79963ceab3d05e3cdcd1e21",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/fleet-local-context.mjs",
+      "sha256": "ffebee9e621a38d65d2991e417eb7a4473f1560617aa67a39cf5acb32cc1b075",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/lease.mjs",
+      "sha256": "37d96a4c6e8c3623412cb3b793bbdda8711760504f490c1589e085bba9474059",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/registry.mjs",
+      "sha256": "7a6770a74e5f5907ebab5977bc1b21f6698a7855ef480c2092e8bf1e55094478",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/launcher-templates/advisor-local.mjs.txt",
+      "sha256": "805ee9c1946c02f6da2f452a73c45a3c3d889582ca36d388d10f730ac2eb28bf",
+      "origin": "Renna local fleet runtime source snapshot"
+    },
+    {
+      "path": "reference-runtime/src/public-source-guard.mjs",
+      "sha256": "d2bdf45cb45c2c2884298484f8517c85b2bca7eef9e6827fe4b7f6e76a2cca76",
+      "origin": "public export guard"
+    },
+    {
+      "path": "reference-runtime/package.json",
+      "sha256": "bb332dad7562b430c9bddf9b07448d3c95c03e5cb2813d84b42f6dcd06c6a10c",
+      "origin": "public source package"
+    },
+    {
+      "path": "reference-runtime/bin/advisor-local.mjs",
+      "origin": "public source-only launcher guard",
+      "sha256": "d0e72f7f10437a6bedb0f63647981a97f839b10bffde473c8b761e49b3cb790c"
+    },
+    {
+      "path": "reference-runtime/bin/advisor-local-mcp.mjs",
+      "origin": "public source-only launcher guard",
+      "sha256": "d0e72f7f10437a6bedb0f63647981a97f839b10bffde473c8b761e49b3cb790c"
+    }
+  ]
+}
