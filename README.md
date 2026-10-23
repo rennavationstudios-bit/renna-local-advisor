@@ -1,5 +1,7 @@
 # Renna Local Advisor
 
+![Renna Local Advisor: Codex leads, local models contribute.](assets/images/renna-local-advisor-banner.png)
+
 Codex stays in charge. Local models take useful, bounded pieces of the work.
 
 This is the sanitized source kit for my customized Astra/Sol Advisor setup. It
@@ -25,17 +27,9 @@ The offline validation scripts require Python 3.11+ and Node.js 22+.
 
 ## How the work is divided
 
-```mermaid
-flowchart TD
-  P[Codex: Astra or Sol] --> S[Local scout / reviewer]
-  P --> A[Local builder / tester A]
-  P --> B[Local builder / tester B]
-  P --> C[Optional on-demand worker]
-  S --> V[Codex integrates and verifies]
-  A --> V
-  B --> V
-  C --> V
-```
+![Codex assigns work to independent Scout, Builder A, Builder B and optional on-demand workers; results return for review and verification.](assets/images/local-worker-architecture.png)
+
+Conceptual topology; worker roles and counts follow the recipient's actual setup.
 
 The primary decides the architecture, chooses tasks, reviews the complete changes,
 runs the final checks, and owns acceptance. A local worker gets an exact objective,
@@ -47,6 +41,8 @@ read, divide a genuinely decomposable project among GPU workers, inspect their
 results, and return an integrated proposal. It is optional, not an extra hop every
 small task has to pay for. Returned work is evidence to review, not automatic
 approval. Retain useful partial work and repair the remaining defect narrowly.
+
+![Scope a bounded task, delegate independent work, then verify returned results. The primary owns acceptance.](assets/images/scoped-workflow.png)
 
 ## What's included
 

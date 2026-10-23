@@ -43,3 +43,21 @@ as passing in this rearranged source-kit layout.
 Privacy patterns and source hashes are useful checks, not proof that arbitrary
 text contains no private information or that a later personalized copy is safe
 to publish. Recheck that copy, staged files and reachable history independently.
+
+## Documentation images
+
+Three generated conceptual illustrations were added after the initial source
+release. They contain no private image inputs and were visually reviewed for text,
+layout and private details. The public verifier permits only their three exact
+paths with SHA-256 values in `assets/images/manifest.json`; it validates PNG chunk
+checksums and rejects text/EXIF metadata, unknown chunks and trailing data. The
+generator's C2PA provenance is preserved and its readable claim text is checked
+for private patterns. Other binary files remain rejected. Seven focused regression tests cover accepted bytes,
+changed hashes, hidden metadata, trailing content, corrupt checksums and invalid
+dimensions or missing termination, and provenance-claim privacy. Run them with:
+
+```sh
+python scripts/test_image_privacy.py
+```
+
+Final prompts and generation provenance: [image notes](assets/images/GENERATION.md).
