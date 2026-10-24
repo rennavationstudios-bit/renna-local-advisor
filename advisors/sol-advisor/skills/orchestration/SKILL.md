@@ -22,20 +22,36 @@ Read [references/role-contracts.md](references/role-contracts.md) before the fir
 delegation. Use [references/operations.md](references/operations.md) for exact spawn,
 preflight, runtime-evidence, isolation, and maintainer procedures.
 
-Before selecting a cloud auxiliary or beginning substantial solo implementation,
-read the early decision gate in [the public local routing policy](references/local-first.md).
-Consider a useful bounded local contribution at this point, not only after deciding
-to delegate. Record the route or a concrete skip reason in the existing checkpoint.
-This does not require dispatch for trivial, sequential or already-covered work.
-If an auxiliary is selected, choose an existing delegation mode and preserve its
-primary prerequisites; never dispatch in a no-auxiliary solo mode.
+Before choosing the delivery route, read the implementation-allocation gate in
+[the public local routing policy](references/local-first.md). For substantial work,
+map useful builder/tester packets as well as advisory work across the qualified
+local fleet. Prefer suitable local implementation that replaces primary work.
+When two independent packets fit two available workers, dispatch both concurrently
+with disjoint ownership. A scout checklist does not settle implementation allocation.
+Record concrete skips and revisit deferred packets after their dependencies are ready.
+Preserve existing mode/prerequisite contracts, reservations and native final review.
+Never dispatch in a no-auxiliary solo mode or manufacture work to fill hardware.
 The installer must adapt the reference runtime to its own hardware before dispatch.
 
-Select the local execution contract deliberately. When the worker can answer from the
-exact supplied source capsule, require `execution:"inference"` and omit commands,
-tool services, writable files, and the tool loop. Use `execution:"tools"` only when
-the assignment materially needs repository discovery, edits, tests, browser, docs,
-web, or retrieval; name that need in the packet. Credential-shaped source content
+Choose the execution contract from the deliverable:
+
+- Read-only analysis from supplied sources: use inference, no allowedFiles,
+  commands or tool services; put findings in the structured summary.
+- Complete code-file proposals from a settled source/interface contract: use a
+  builder role with inference and exact allowedFiles (including new files).
+  Return code in the structured files array, not fenced code in the summary.
+  allowedFiles authorizes isolated proposals; it does not edit the caller checkout.
+- Repository discovery, iterative edits or executable tests: use tools with exact
+  sourceFiles/allowedFiles and parent-selected checks as appropriate.
+
+On BUILDER_OWNERSHIP_REQUIRED, add the missing exact allowedFiles and retry once.
+Never relabel a coding request as a read-only tester/scout to pass validation.
+A DELIVERED summary with no requested code is not a completed implementation.
+Inspect returned files and hashes, integrate through the supported applier when
+appropriate, and run authoritative tests. Sensitive-source read-only restrictions
+remain unchanged; no code proposal may widen their scope.
+
+Credential-shaped source content
 uses only the shared reference's explicit `local-only-transient`, inference-only,
 read-only contract. It must never enter a cloud-capable route or native/cloud
 delegate prompt, and it requires the bridge's fixed encrypted or host-local
@@ -59,9 +75,12 @@ mode: solo | delegate | audit | full
 risk: <concise, task-specific rationale>
 ~~~
 
-No task tool call may precede this declaration. Choose `solo` unless a stated risk
-justifies another mode. A later declaration may only escalate the route when newly
-observed risk justifies it; never silently downgrade. Record the evidence for an
+No task tool call may precede this declaration. Choose `solo` for trivial work
+without useful auxiliaries. Task breadth, useful independent implementation, or risk
+justifies another mode. Discovery may identify new useful local implementation;
+declare escalation to delegate/full before dispatch rather than remaining in
+root-only audit. A later declaration may escalate for newly observed work or risk;
+never silently downgrade. Record the evidence for an
 escalation. Details and the task-scoped preflight matrix are in operations.md.
 
 ## Preflight selected auxiliaries only
@@ -99,6 +118,13 @@ risk, wide blast radius, or misclassification. A corrected Luna attempt is reser
 for a specification error and is not a prerequisite for Terra. Any route change must
 be declared and evidenced; do not silently downgrade.
 
+Local MCP builders/testers are additional implementers under delegate/full. Use
+the shared registry, admission and source-bound receipt checks for them; native
+Luna/Terra role pins apply only when selecting those native roles. Full with only
+local implementers still requires the fresh native Sol / High reviewer preflight
+and final review. Halo read-only advice may support audit, but cannot stand in for
+the separate builder/tester allocation decision.
+
 ## Keep architect work in the primary session
 
 Keep these responsibilities in the primary session:
@@ -107,7 +133,7 @@ Keep these responsibilities in the primary session:
 - Choose architecture, interfaces, decomposition, and selective route.
 - Write the complete five-part worker specification for any selected implementer.
 - Inspect the actual diff and rerun verification.
-- Decide whether newly observed risk warrants escalation.
+- Decide whether newly observed independent work or risk warrants escalation.
 - Judge the reviewer verdict when the route includes review and accept the deliverable.
 
 Every worker prompt must contain OBJECTIVE, FILES AND OWNERSHIP, INTERFACES,
@@ -133,7 +159,7 @@ implements its own fixes. `solo` and `delegate` do not receive a fresh reviewer.
   - full: the implementer that owns the required correction handles it, the root
     re-verifies, and a new fresh reviewer reviews.
   - solo and delegate: no fresh reviewer is added unless a newly observed,
-    risk-evidenced route escalation is declared; never silently add one.
+    work- or risk-evidenced route escalation is declared; never silently add one.
 - rethink: revise the architecture and do not report completion.
 
 Any implementation correction invalidates the prior verdict. Apply the observed sandbox

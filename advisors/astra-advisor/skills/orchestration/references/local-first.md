@@ -5,6 +5,36 @@ replaces the original author's machine-specific policy in the public export.
 
 ## Early local-contribution decision gate
 
+### Allocate implementation before choosing root-only delivery
+
+For substantial work, identify actual implementation and executable-test packets
+as well as advisory work. Prefer qualified local builders/testers for suitable
+bounded packets that replace primary work. Map each configured, qualified worker
+to a useful packet or a concrete phase-specific skip reason in the existing
+checkpoint. When two independent packets fit two available workers, dispatch them
+concurrently with disjoint exact ownership. There is no minimum worker count or
+utilization quota.
+
+A scout checklist or design consultation does not settle implementation allocation.
+Revisit deferred builder/tester packets when their design, interface or source
+dependencies become ready, before implementing that work in the primary. Preserve
+completed work; do not manufacture tasks or tests to occupy hardware. Tiny,
+inherently sequential, restricted or unsuitable work stays in the primary. A real
+capacity or guard failure is a valid fallback; hypothetical failure is not.
+
+Select a compatible existing Advisor mode before dispatch. Under Sol, local
+implementation uses delegate for non-substantial work or full for substantial
+work; audit remains root implementation plus fresh review. Newly identified useful
+independent implementation can justify a declared escalation from audit/solo before
+dispatch. Local MCP workers use their own registry, admission and source-bound
+receipt checks. Native role pins apply only to selected native agents, and full
+with local implementers still requires fresh native Sol / High review.
+
+The primary retains architecture, interfaces, integration, authoritative checks and
+acceptance. Preserve source hashes, privacy, reservations and guarded on-demand
+loading. Do not start or retune stopped resident services. Record delivered and
+parent-verified useful work separately; status checks are not delegation.
+
 Before selecting a cloud auxiliary or beginning substantial solo implementation,
 identify an independent bounded contribution that could materially reduce primary
 work. Consider local workers here, not only after deciding to delegate. Do not
@@ -47,6 +77,24 @@ first-pass review was useful. Expected savings never waive that review. This gat
 guidance, not measured savings or proof of historical avoidable skips.
 
 ## Dispatch and acceptance safeguards
+
+Choose the execution contract from the deliverable:
+
+- Read-only analysis from supplied sources: use inference, no allowedFiles,
+  commands or tool services; put findings in the structured summary.
+- Complete code-file proposals from a settled source/interface contract: use a
+  builder role with inference and exact allowedFiles (including new files).
+  Return code in the structured files array, not fenced code in the summary.
+  allowedFiles authorizes isolated proposals; it does not edit the caller checkout.
+- Repository discovery, iterative edits or executable tests: use tools with exact
+  sourceFiles/allowedFiles and parent-selected checks as appropriate.
+
+On BUILDER_OWNERSHIP_REQUIRED, add the missing exact allowedFiles and retry once.
+Never relabel a coding request as a read-only tester/scout to pass validation.
+A DELIVERED summary with no requested code is not a completed implementation.
+Inspect returned files and hashes, integrate through the supported applier when
+appropriate, and run authoritative tests. Sensitive-source read-only restrictions
+remain unchanged; no code proposal may widen their scope.
 
 Keep the selected Codex primary and effort authoritative. A local contribution is
 an auxiliary proposal, not integration or acceptance authority. Preserve the

@@ -36,11 +36,18 @@ runs the final checks, and owns acceptance. A local worker gets an exact objecti
 source scope, writable ownership where needed, and explicit checks. Independent
 assignments can run concurrently; shared hardware needs shared reservations.
 
-Before choosing a cloud auxiliary or starting substantial solo work, the Advisor
-considers whether a bounded local contribution would help. It records the chosen
-route or a concrete skip reason in the existing checkpoint. Trivial, sequential
-or already-covered work can stay solo; no worker-utilization quota is imposed.
-Existing mode, primary-model and review requirements still apply.
+Before choosing the delivery route, the Advisor allocates suitable implementation
+and executable-test work as well as advice. A scout checklist does not settle the
+separate builder/tester decision. Two useful independent packets can run on two
+qualified workers concurrently, with exact disjoint ownership. It records useful
+assignments or concrete skip reasons and revisits deferred work when dependencies
+are ready. Trivial, sequential or already-covered work can stay in the primary;
+there is no worker-utilization quota.
+
+Read-only inference returns findings. A builder's inference request supplies exact
+output-file ownership and returns structured code files for primary review and
+application. Coding requests keep the builder contract when validation needs a
+repair. Existing mode, primary-model and native review requirements still apply.
 
 Direct local assignments are the ordinary path. A separate local coordinator can
 read, divide a genuinely decomposable project among GPU workers, inspect their

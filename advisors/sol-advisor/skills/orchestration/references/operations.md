@@ -96,7 +96,11 @@ Solo is the default. Select a dynamic task-scoped set of auxiliaries only where 
 dependency graph, specialization, disjoint ownership, cost, and observed runtime
 availability make it useful; no policy headcount ceiling applies. Use full for
 substantial delegated implementation and optionally for breadth or risk. The root may
-emit a later declaration only to escalate when newly observed risk justifies it. It
+emit a later declaration to escalate when newly observed useful independent
+implementation or risk justifies it. Apply the shared local implementation-allocation
+gate before root-only delivery; local builders/testers use delegate/full and their
+registry/admission checks. Full with local implementers requires the native Sol
+reviewer check, not unused native implementer checks. It
 records that evidence and never silently downgrades.
 
 Changing selected capacity as independent work starts or drains is scheduling, not a
@@ -219,7 +223,7 @@ git status --short
 git diff --stat
 ~~~
 
-The verifier covers the v0.8.1+renna.2 manifest, exact four-role TOMLs, dynamic
+The verifier covers the v0.8.1+renna.4 manifest, exact four-role TOMLs, dynamic
 selective-routing contracts, explicit UltraBurn policy/state fixtures, concise README
 journey, absence of retired workflow references, installer safety fixtures, Luna
 runtime evidence, JSON/TOML validity, Python checks, and shell syntax.

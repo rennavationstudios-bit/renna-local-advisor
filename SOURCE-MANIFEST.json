@@ -4,7 +4,7 @@
   "files": [
     {
       "path": "advisors/astra-advisor/.codex-plugin/plugin.json",
-      "sha256": "1567199f13bea81e7141d99b90ce493a7f8b2dc31215ebba16147033e8b3d14d",
+      "sha256": "dae1acff328157eb528ac66641078e4a4f37ec33d0dd04edbc284269924f14ff",
       "origin": "astra-advisor customized MIT source"
     },
     {
@@ -24,7 +24,7 @@
     },
     {
       "path": "advisors/astra-advisor/scripts/verify.sh",
-      "sha256": "549717e20b42b56c9cafd31958e4b18008029814684ae9dbba3e5af1ca968267",
+      "sha256": "0f7d79703f6027f59fa61ca1c17770e19f6781332ae8997dc0a3a133a955cde6",
       "origin": "astra-advisor customized MIT source"
     },
     {
@@ -34,7 +34,7 @@
     },
     {
       "path": "advisors/astra-advisor/skills/orchestration/SKILL.md",
-      "sha256": "bce74e5274a062bf6793681a5ac9f9c607cfd5f8a3145bf42f7866336f61538c",
+      "sha256": "72937f0cf63489bbb46e782588b426f8005336a43bf74a4243d358e17a3481a4",
       "origin": "astra-advisor customized MIT source"
     },
     {
@@ -49,7 +49,7 @@
     },
     {
       "path": "advisors/sol-advisor/.codex-plugin/plugin.json",
-      "sha256": "154570b2bfcf62ff1c0e39fb435c3bf18cd73787f17d9c3aa25b6b9feb84a9d0",
+      "sha256": "1de7d3d15ba16a0f2030fd5b1f7fb7203849ec61a5c428d718c5a85feaec9c2a",
       "origin": "sol-advisor customized MIT source"
     },
     {
@@ -109,22 +109,22 @@
     },
     {
       "path": "advisors/sol-advisor/scripts/verify.sh",
-      "sha256": "ebcd89ca4ff6a13de92c5bfd00602abbe6a6414f39ba85d8b0bae65756906822",
+      "sha256": "69b258e41a576d6b714b4f5e5d34a0807814ccb6a7cfae72504c52f784ca6239",
       "origin": "sol-advisor customized MIT source"
     },
     {
       "path": "advisors/sol-advisor/skills/orchestration/references/operations.md",
-      "sha256": "edab5cc4ec8c12a7baf133b3708e1f224efb74511d309e8aa555482d93931418",
+      "sha256": "92014346abfc556e1d73b4340248b8091ad71c2f0fc0087fb3cda36ddd86a4c4",
       "origin": "sol-advisor customized MIT source"
     },
     {
       "path": "advisors/sol-advisor/skills/orchestration/references/role-contracts.md",
-      "sha256": "5a2f593df2921af1635891cce08b043808edd7b125b917b0423f69d8595f2843",
+      "sha256": "d66af42d4031ecc0ddd070002b5496dfe3a9a70a60178d9b9683d259b59b4c67",
       "origin": "sol-advisor customized MIT source"
     },
     {
       "path": "advisors/sol-advisor/skills/orchestration/SKILL.md",
-      "sha256": "6cfd1ea81faed387d97f141e2ad63f9056feacf727767cf4c447c3df25b4e866",
+      "sha256": "273b2caf6887e0ecebed90ae43baab909cc0f70056ee25ac2144ff661fea8705",
       "origin": "sol-advisor customized MIT source"
     },
     {
@@ -395,12 +395,12 @@
     {
       "path": "advisors/astra-advisor/skills/orchestration/references/local-first.md",
       "origin": "public local routing policy",
-      "sha256": "10e9ad4401d7698c2efa2e16e10a0576f3c042449161504c4fc579464aed5d26"
+      "sha256": "bc389d33893f59ff8b9b3e3970b9adb2a57c0c1bd5c86da3b40c678053f539d4"
     },
     {
       "path": "advisors/sol-advisor/skills/orchestration/references/local-first.md",
       "origin": "public local routing policy",
-      "sha256": "10e9ad4401d7698c2efa2e16e10a0576f3c042449161504c4fc579464aed5d26"
+      "sha256": "bc389d33893f59ff8b9b3e3970b9adb2a57c0c1bd5c86da3b40c678053f539d4"
     }
   ]
 }

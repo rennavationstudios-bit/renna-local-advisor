@@ -21,8 +21,9 @@ Solo is the default. Select dynamic task-scoped parallelism only where the depen
 graph, specialization, disjoint ownership, cost, and observed runtime availability make
 it useful; no policy headcount ceiling applies. Full is required for substantial
 delegated implementation and may also be selected for breadth or risk. A later route
-declaration may only escalate after newly observed risk justifies it and supplies that
-evidence; never silently downgrade.
+declaration may escalate for newly observed useful independent implementation or
+risk, with that evidence; local builders/testers use delegate/full under the shared
+local-first contract and their own admission checks; never silently downgrade.
 
 Changing selected capacity as independent work starts or drains is scheduling, not a
 risk-route downgrade. Substantial root implementation uses `audit`; substantial
@@ -46,6 +47,13 @@ routing and reviewer-isolation checks before accepting the result:
 A missing, stale, unsafe, conflicting, unavailable, inconsistent, or unobservable
 role/model/effort stops the native lane. Never silently fall back. Model and effort
 are pinned by custom-agent TOML, so omit native per-spawn overrides.
+
+Local MCP implementers are not native Luna/Terra roles. The native identity
+checks and exact Luna/Terra prompts below apply only to selected native agents.
+Local builders/testers use the shared local-first registry/admission and receipt
+contract under delegate/full; full with only local implementers still preflights
+and obtains the fresh native Sol / High review. No unused native implementer
+check is required. Halo read-only advice may support audit.
 
 ## Shared implementation contract
 
@@ -106,9 +114,9 @@ The primary session must inspect the diff and rerun verification itself.
   re-verifies, and a new fresh reviewer inspects the result.
 
 Auxiliary work substitutes for root work; it must not duplicate it. A route can
-escalate only with newly observed, recorded risk; it never silently downgrades.
+escalate with newly observed, recorded useful independent implementation or risk; it never silently downgrades.
 Solo and delegate have no fresh reviewer or review-driven correction unless a newly
-observed, risk-evidenced route escalation is declared; never silently add one.
+observed, work- or risk-evidenced route escalation is declared; never silently add one.
 
 ## Luna / Max - bounded delegate/full implementation lane
 

@@ -59,6 +59,24 @@ compliance, measured utilization, fewer historical skips or realized savings.
 No private audit counts, transcripts, identifiers or installation bindings are
 included. The source/privacy checks above apply to the updated public files.
 
+## Implementation allocation and builder handoff
+
+The policy now allocates useful implementation and executable-test packets before
+root-only delivery, independently of scouting. Sol can declare a route escalation
+for newly discovered useful independent work as well as risk, while preserving
+native role pins and mandatory fresh review for substantial delegated work.
+Local MCP implementers use their own admission and source-bound receipt checks.
+
+Read-only inference omits writable ownership; builder inference requires exact
+allowedFiles and structured returned code files. A validation failure must not be
+worked around by relabeling implementation as read-only testing. Parent source
+inspection and authoritative tests remain required before accepting a proposal.
+
+Fresh automatic real-work acceptance of these routing and handoff changes remains
+pending. Instruction review, worker selection and a delivered receipt alone do not
+establish useful accepted implementation or cost savings. Private test transcripts,
+receipts, installation bindings and usage counts are excluded from this source kit.
+
 ## Documentation images
 
 Three generated conceptual illustrations were added after the initial source

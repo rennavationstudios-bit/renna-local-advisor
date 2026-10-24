@@ -27,20 +27,36 @@ Report model and effort as observed evidence. If metadata does not expose a valu
 say that it is unobservable; never claim a runtime pin that was not confirmed. Read
 [the operations reference](references/operations.md) before the first delegation.
 
-Before selecting a cloud auxiliary or beginning substantial solo implementation,
-read the early decision gate in [the public local routing policy](references/local-first.md).
-Consider a useful bounded local contribution at this point, not only after deciding
-to delegate. Record the route or a concrete skip reason in the existing checkpoint.
-This does not require dispatch for trivial, sequential or already-covered work.
-If an auxiliary is selected, choose an existing delegation mode and preserve its
-primary prerequisites; never dispatch in a no-auxiliary solo mode.
+Before choosing the delivery route, read the implementation-allocation gate in
+[the public local routing policy](references/local-first.md). For substantial work,
+map useful builder/tester packets as well as advisory work across the qualified
+local fleet. Prefer suitable local implementation that replaces primary work.
+When two independent packets fit two available workers, dispatch both concurrently
+with disjoint ownership. A scout checklist does not settle implementation allocation.
+Record concrete skips and revisit deferred packets after their dependencies are ready.
+Preserve existing mode/prerequisite contracts, reservations and native final review.
+Never dispatch in a no-auxiliary solo mode or manufacture work to fill hardware.
 The installer must adapt the reference runtime to its own hardware before dispatch.
 
-Select the local execution contract deliberately. When the worker can answer from the
-exact supplied source capsule, require `execution:"inference"` and omit commands,
-tool services, writable files, and the tool loop. Use `execution:"tools"` only when
-the assignment materially needs repository discovery, edits, tests, browser, docs,
-web, or retrieval; name that need in the packet. Credential-shaped source content
+Choose the execution contract from the deliverable:
+
+- Read-only analysis from supplied sources: use inference, no allowedFiles,
+  commands or tool services; put findings in the structured summary.
+- Complete code-file proposals from a settled source/interface contract: use a
+  builder role with inference and exact allowedFiles (including new files).
+  Return code in the structured files array, not fenced code in the summary.
+  allowedFiles authorizes isolated proposals; it does not edit the caller checkout.
+- Repository discovery, iterative edits or executable tests: use tools with exact
+  sourceFiles/allowedFiles and parent-selected checks as appropriate.
+
+On BUILDER_OWNERSHIP_REQUIRED, add the missing exact allowedFiles and retry once.
+Never relabel a coding request as a read-only tester/scout to pass validation.
+A DELIVERED summary with no requested code is not a completed implementation.
+Inspect returned files and hashes, integrate through the supported applier when
+appropriate, and run authoritative tests. Sensitive-source read-only restrictions
+remain unchanged; no code proposal may widen their scope.
+
+Credential-shaped source content
 uses only the shared reference's explicit `local-only-transient`, inference-only,
 read-only contract. It must never enter a cloud-capable route or native/cloud
 delegate prompt, and it requires the bridge's fixed encrypted or host-local
