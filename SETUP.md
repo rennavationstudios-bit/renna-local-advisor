@@ -74,9 +74,17 @@ independent acceptance reviews required by the selected Advisor. Local failure
 does not authorize a cloud call in a local-only task, nor a model/service change.
 
 Freeze supplied source and test files until each request finishes. Put writable
-test fixtures in the host-provided temporary directory. For full-file proposals,
-set an adequate bounded output allowance within the worker's validated limits or
-split the packet; an output-length stop is distinct from a code or harness defect.
+test fixtures in the host-provided temporary directory. For a separately qualified
+direct runtime with adaptive output handling (verified in 1.6.12), normally omit
+maxOutputTokens so the host fits its allowance to the actual context, prompt,
+schema and growing tool history. Explicit limits remain exact and must fit.
+Verify the configured release, code identity and route first; a version label
+alone is not runtime qualification. External Hermes adaptation is not qualified.
+
+The bundled guarded reference-runtime snapshot predates adaptive fitting. When
+porting that older contract, use an adequate bounded explicit output allowance or
+split the packet within validated limits. Do not assume new guidance upgrades the
+bundled code. An output-length stop is distinct from a code or harness defect.
 
 Use the [Codex-credit closing-report policy](docs/codex-credit-report.md) for
 ChatGPT-authenticated work. The bundled helper reads explicit metadata only; keep

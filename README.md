@@ -71,6 +71,9 @@ approval. Retain useful partial work and repair the remaining defect narrowly.
 | `SOURCE-MANIFEST.json` | Sanitized source hashes and origin labels |
 
 The runtime is a focused source extraction, not the entire private fleet project.
+Its guarded snapshot predates adaptive output-budget fitting. The routing guidance
+distinguishes that older contract from separately qualified adaptive runtimes;
+this documentation update does not upgrade the bundled runtime implementation.
 Original sanitized launchers are stored as text under `launcher-templates/`; the
 `bin/` files contain only the blocking guard, so even missing optional dependencies
 cannot prevent a clear source-reference message.

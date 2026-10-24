@@ -84,14 +84,25 @@ temporary directory for writable test fixtures, not the read-only checkout. Trea
 source-change rejection, sandbox failure, and model/code defects as distinct
 outcomes. Never relax guards to make a test pass or duplicate a still-running job.
 
-For complete code-file proposals, explicitly size maxOutputTokens for the expected
-code plus structured response, within the worker's validated context/output limits.
-The inference default of 4096 can truncate a useful full-file response. Split an
-oversized packet or provide an adequate bounded allowance; do not raise global
-model profiles. A finish_reason=length is output-budget exhaustion, not proof of
-bad code or malformed schema. Preserve known rejected-response usage and later
-attempt overhead separately. Do not redo already completed primary work to obtain
-a successful local receipt.
+On a separately qualified direct Advisor runtime with adaptive output handling
+(verified in 1.6.12), normally omit maxOutputTokens. The host starts with
+min(65536, floor(verified live context / 4)), rejecting contexts below 8192 tokens.
+It fits that nominal allowance to verified remaining prompt, schema and history
+space, retaining a 2048-token reserve and a minimum 128-token reply. Direct tool
+histories are refitted on each call. Explicit limits remain exact and fail closed
+if they do not fit. Sensitive no-tokenizer requests retain conservative admission
+without a tokenizer call. No input is truncated and model profiles are unchanged.
+Read actual per-call budget evidence; the nominal ceiling is not observed usage.
+
+The guarded reference-runtime snapshot in this repository predates this adaptive
+repair and does not implement it. Older contracts can retain fixed inference
+defaults; use a bounded explicit allowance or a smaller packet within validated
+limits. The optional external Hermes adapter is not qualified for adaptive fitting.
+Verify the configured release, code identity and route before relying on this
+behavior. Do not raise global model profiles. A finish_reason=length indicates
+output-budget exhaustion, not proof of bad code or malformed schema. Preserve known
+rejected-response usage and later attempt overhead separately; do not redo
+completed primary work merely to obtain a successful local receipt.
 
 Choose the execution contract from the deliverable:
 

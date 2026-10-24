@@ -395,12 +395,12 @@
     {
       "path": "advisors/astra-advisor/skills/orchestration/references/local-first.md",
       "origin": "public local routing policy",
-      "sha256": "84f6f2b4cae142b1b582e44133400e5a5595848993cbc0b64a342939a0c1be71"
+      "sha256": "09cae2ac48d0d776130a54d12346e20efc4c01d65ed40e9a791e1b2bcc624bec"
     },
     {
       "path": "advisors/sol-advisor/skills/orchestration/references/local-first.md",
       "origin": "public local routing policy",
-      "sha256": "84f6f2b4cae142b1b582e44133400e5a5595848993cbc0b64a342939a0c1be71"
+      "sha256": "09cae2ac48d0d776130a54d12346e20efc4c01d65ed40e9a791e1b2bcc624bec"
     },
     {
       "path": "docs/codex-credit-report.md",

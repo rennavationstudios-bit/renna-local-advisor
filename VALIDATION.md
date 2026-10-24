@@ -100,6 +100,22 @@ output guidance are included. No private receipts, account data, installed relea
 paths or later unreviewed runtime changes are part of this update. Calculator
 correctness does not establish actual savings or whole-task usage coverage.
 
+## Adaptive output-budget guidance
+
+Both public local-first references distinguish separately qualified direct
+adaptive runtimes (verified in 1.6.12) from older fixed-default contracts. The
+guidance covers remaining prompt/schema/history space, reserve and minimum reply,
+exact explicit limits, sensitive no-tokenizer admission and per-call evidence.
+The optional external Hermes adapter is not qualified for adaptive fitting.
+
+This update changes policy documentation only. The bundled guarded runtime
+snapshot predates the adaptive repair; no adaptive implementation or runtime tests
+are added here. Source-integrity, privacy-pattern and documentation checks do not
+establish real inference, recipient installation or Windows AppContainer
+compatibility. Restricted-worker execution remains unqualified; this update
+contains no sandbox repair. The offline report helper and its host-test evidence
+are unchanged.
+
 ## Documentation images
 
 Three generated conceptual illustrations were added after the initial source
