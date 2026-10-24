@@ -77,6 +77,29 @@ pending. Instruction review, worker selection and a delivered receipt alone do n
 establish useful accepted implementation or cost savings. Private test transcripts,
 receipts, installation bindings and usage counts are excluded from this source kit.
 
+## Codex-credit closing reports
+
+The shared offline helper is preserved byte-for-byte from its reviewed portable
+source, including a dated official Codex-credit rate snapshot and synthetic input.
+It makes no network, inference or billing-account calls. The public policy links
+both Advisors to the shared helper and selects Codex-credit reports for
+ChatGPT-authenticated tasks; legacy API-equivalent receipts are conditional on
+an explicitly selected API basis.
+
+Fifteen synthetic tests cover exact arithmetic, cache uncertainty, incomplete
+usage, repair/disposition accounting, supported speed combinations, safe token
+totals, inert Markdown labels, CLI output creation and refusal to overwrite inputs
+or existing outputs. Run them with:
+
+```sh
+node --test scripts/codex-credit-report/report.test.mjs scripts/codex-credit-report/cli.test.mjs
+```
+
+Source freezing, host-provided temporary fixtures and bounded complete-proposal
+output guidance are included. No private receipts, account data, installed release
+paths or later unreviewed runtime changes are part of this update. Calculator
+correctness does not establish actual savings or whole-task usage coverage.
+
 ## Documentation images
 
 Three generated conceptual illustrations were added after the initial source

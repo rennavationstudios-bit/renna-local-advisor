@@ -4,7 +4,7 @@
   "files": [
     {
       "path": "advisors/astra-advisor/.codex-plugin/plugin.json",
-      "sha256": "dae1acff328157eb528ac66641078e4a4f37ec33d0dd04edbc284269924f14ff",
+      "sha256": "9d101a66bed353bdc01205810939a379728e5556dfdb9b7ec65d0bb1b5e9dfe2",
       "origin": "astra-advisor customized MIT source"
     },
     {
@@ -24,17 +24,17 @@
     },
     {
       "path": "advisors/astra-advisor/scripts/verify.sh",
-      "sha256": "0f7d79703f6027f59fa61ca1c17770e19f6781332ae8997dc0a3a133a955cde6",
+      "sha256": "4f469a02c44b782ba29dc2317b7c18c302b018052af94aec7c8b6328abacd23b",
       "origin": "astra-advisor customized MIT source"
     },
     {
       "path": "advisors/astra-advisor/skills/orchestration/references/operations.md",
-      "sha256": "8774c1f8353a5a65887ae7a171d09d197289b0c16c648b4bf3a0cd6565d07858",
+      "sha256": "d18d9f51e4fdf63f68dab05cd27b4a1d22c2e601538e2f58dfb7c44c15735382",
       "origin": "astra-advisor customized MIT source"
     },
     {
       "path": "advisors/astra-advisor/skills/orchestration/SKILL.md",
-      "sha256": "72937f0cf63489bbb46e782588b426f8005336a43bf74a4243d358e17a3481a4",
+      "sha256": "6fea741d66daa77be00ba7f0cbc2333931cae1dedf243952ffb49db774714959",
       "origin": "astra-advisor customized MIT source"
     },
     {
@@ -49,7 +49,7 @@
     },
     {
       "path": "advisors/sol-advisor/.codex-plugin/plugin.json",
-      "sha256": "1de7d3d15ba16a0f2030fd5b1f7fb7203849ec61a5c428d718c5a85feaec9c2a",
+      "sha256": "e36056c33e568767e0d4b75b64155df5fb1c9965a56e416992164caea3fce0ce",
       "origin": "sol-advisor customized MIT source"
     },
     {
@@ -109,12 +109,12 @@
     },
     {
       "path": "advisors/sol-advisor/scripts/verify.sh",
-      "sha256": "69b258e41a576d6b714b4f5e5d34a0807814ccb6a7cfae72504c52f784ca6239",
+      "sha256": "f3ff38a0ba6ed8cd914e4f64572b17497ca9b52e838158ad589b95aea954acf3",
       "origin": "sol-advisor customized MIT source"
     },
     {
       "path": "advisors/sol-advisor/skills/orchestration/references/operations.md",
-      "sha256": "92014346abfc556e1d73b4340248b8091ad71c2f0fc0087fb3cda36ddd86a4c4",
+      "sha256": "e650ac4c464af7908a942dd290478830d55d56fd96ca81f36bea412555542b3b",
       "origin": "sol-advisor customized MIT source"
     },
     {
@@ -124,7 +124,7 @@
     },
     {
       "path": "advisors/sol-advisor/skills/orchestration/SKILL.md",
-      "sha256": "273b2caf6887e0ecebed90ae43baab909cc0f70056ee25ac2144ff661fea8705",
+      "sha256": "44d28a8ab3ffc2204110dd54e0107125066775aa8ea82f6dafea3860c96f7e02",
       "origin": "sol-advisor customized MIT source"
     },
     {
@@ -395,12 +395,57 @@
     {
       "path": "advisors/astra-advisor/skills/orchestration/references/local-first.md",
       "origin": "public local routing policy",
-      "sha256": "bc389d33893f59ff8b9b3e3970b9adb2a57c0c1bd5c86da3b40c678053f539d4"
+      "sha256": "84f6f2b4cae142b1b582e44133400e5a5595848993cbc0b64a342939a0c1be71"
     },
     {
       "path": "advisors/sol-advisor/skills/orchestration/references/local-first.md",
       "origin": "public local routing policy",
-      "sha256": "bc389d33893f59ff8b9b3e3970b9adb2a57c0c1bd5c86da3b40c678053f539d4"
+      "sha256": "84f6f2b4cae142b1b582e44133400e5a5595848993cbc0b64a342939a0c1be71"
+    },
+    {
+      "path": "docs/codex-credit-report.md",
+      "sha256": "11193ffb1280e47c3703ff2ca35fa833ab9736ff028d23b1c678dcf68de4caf2",
+      "origin": "Renna offline Codex-credit reporting helper and policy"
+    },
+    {
+      "path": "scripts/codex-credit-report/cli.mjs",
+      "sha256": "fc33aa57af1f6a139adfbb03213ba3373b5aafe4f4cfd75cf31be3f23a46cd59",
+      "origin": "Renna offline Codex-credit reporting helper and policy"
+    },
+    {
+      "path": "scripts/codex-credit-report/cli.test.mjs",
+      "sha256": "6c02a4404fb460d1bce11a26179b926731e47c89e28fb00f6f30e501f5d9c99e",
+      "origin": "Renna offline Codex-credit reporting helper and policy"
+    },
+    {
+      "path": "scripts/codex-credit-report/example.json",
+      "sha256": "c6fa9d036ed6288ee5c9d0e98866eec931f3aace9b09cd140235cb4c40ad77c4",
+      "origin": "Renna offline Codex-credit reporting helper and policy"
+    },
+    {
+      "path": "scripts/codex-credit-report/rates.json",
+      "sha256": "c349be303913896f8884020c47977549261efe8c3cda65ba9f59be9dd7f8a83f",
+      "origin": "Renna offline Codex-credit reporting helper and policy"
+    },
+    {
+      "path": "scripts/codex-credit-report/README.md",
+      "sha256": "6ea2f2121db18b79bcb9b23d7b34f8a5d91ba3b6ad842564fe3a47c644d01492",
+      "origin": "Renna offline Codex-credit reporting helper and policy"
+    },
+    {
+      "path": "scripts/codex-credit-report/report.mjs",
+      "sha256": "c9be3638fe50492fa23e9907b043c39ab8f4ffb7e47c2a6a6a97af2190882575",
+      "origin": "Renna offline Codex-credit reporting helper and policy"
+    },
+    {
+      "path": "scripts/codex-credit-report/report.test.mjs",
+      "sha256": "c0e47c191b942e7aed87acc38df9783b2ca52cfee8f72cdffe8bef74daacd2f7",
+      "origin": "Renna offline Codex-credit reporting helper and policy"
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "1e4b98ee42fd6c5b4b36197be1394917a6372d355727c9fd06aedd576f7a1990",
+      "origin": "public helper line-ending and whitespace policy"
     }
   ]
 }

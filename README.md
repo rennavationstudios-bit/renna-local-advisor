@@ -65,6 +65,8 @@ approval. Retain useful partial work and repair the remaining defect narrowly.
 | `advisors/sol-advisor/` | Customized Sol Advisor plugin, companion roles and UltraBurn source |
 | `reference-runtime/` | Actual local delegation, coordinator, isolation, lease, source-hash and application code, with machine bindings replaced |
 | `skills/local-advisor-setup/` | Instructions for Codex on the recipient's computer |
+| `scripts/codex-credit-report/` | Offline Codex-credit comparison helper, dated rate card and synthetic tests |
+| `docs/codex-credit-report.md` | Shared closing-report policy and usage-evidence limits |
 | `config/local.example.json` | Empty recipient configuration template; contains no working endpoint or key |
 | `SOURCE-MANIFEST.json` | Sanitized source hashes and origin labels |
 
@@ -94,6 +96,20 @@ repair time, and the primary's verification effort on your own workload.
 The public export has source-integrity, privacy-pattern and syntax checks. That
 does not qualify a fresh install's real models, hardware, cancellation, tools or
 desktop behavior. See [VALIDATION.md](VALIDATION.md) for the executed checks.
+
+## Closing reports
+
+ChatGPT-authenticated tasks use a **Codex-credit report** with useful, partial and
+discarded work, usage coverage and repair overhead. The bundled offline helper
+estimates the credit equivalent of supplied token counts using an explicit model,
+speed and dated Codex rate snapshot. Unknown usage stays unknown; the estimate
+does not establish actual credits saved, included allowance saved or cash savings.
+API-equivalent analysis remains a separate, explicitly selected billing basis.
+
+See the [report policy](docs/codex-credit-report.md) and
+[helper instructions](scripts/codex-credit-report/README.md). The helper makes no
+network, inference or account queries. Keep real inputs and reports in ignored
+private task outputs; only synthetic fixtures are included here.
 
 ## Attribution and license
 

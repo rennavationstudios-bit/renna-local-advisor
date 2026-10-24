@@ -223,7 +223,7 @@ git status --short
 git diff --stat
 ~~~
 
-The verifier covers the v0.8.1+renna.4 manifest, exact four-role TOMLs, dynamic
+The verifier covers the v0.8.1+renna.5 manifest, exact four-role TOMLs, dynamic
 selective-routing contracts, explicit UltraBurn policy/state fixtures, concise README
 journey, absence of retired workflow references, installer safety fixtures, Luna
 runtime evidence, JSON/TOML validity, Python checks, and shell syntax.

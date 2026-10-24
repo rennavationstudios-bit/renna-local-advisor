@@ -165,3 +165,18 @@ implements its own fixes. `solo` and `delegate` do not receive a fresh reviewer.
 Any implementation correction invalidates the prior verdict. Apply the observed sandbox
 and permission profile rules in the operations reference; never claim enforced
 read-only isolation when it was not observed.
+
+## Completion usage report
+
+For ChatGPT-authenticated work, use the shared Codex-credit closing report in
+[the shared Codex-credit report policy](../../../../docs/codex-credit-report.md). This takes precedence
+over the historical API-equivalent receipt for that billing basis. Both Astra and
+Sol report observed local outcomes, token coverage, partial/discarded work and
+repair overhead; delivery alone is not acceptance. Same-token Codex-credit repricing
+is an estimate, never measured cash savings or included allowance saved. Missing
+usage remains unknown. Persist the report with task outputs and link it from the
+existing checkpoint. If the helper or usage is unavailable, state that limit;
+do not substitute API dollars or build a telemetry/account-query workaround.
+For explicitly requested API-equivalent analysis or actual API work, retain the
+separate historical API calculator and its provenance/coverage requirements.
+An unknown billing basis must be labelled unknown, not guessed.

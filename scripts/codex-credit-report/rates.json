@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "basis": "codex_credits",
+  "verifiedOn": "2026-10-23",
+  "timezone": "America/New_York",
+  "source": "https://learn.chatgpt.com/docs/pricing",
+  "speedSource": "https://learn.chatgpt.com/docs/agent-configuration/speed",
+  "unit": "credits_per_million_tokens",
+  "standard": {
+    "gpt-6-astra": {"input": "250", "cachedInput": "25", "output": "1250", "supportedSpeeds": ["standard", "fast", "ultrafast"]},
+    "gpt-6.1-sol": {"input": "50", "cachedInput": "2.5", "output": "250", "supportedSpeeds": ["standard", "fast", "ultrafast"]},
+    "gpt-6-sol": {"input": "50", "cachedInput": "5", "output": "250", "supportedSpeeds": ["standard", "fast"]},
+    "gpt-6-luna": {"input": "2.5", "cachedInput": "0.25", "output": "12.5", "supportedSpeeds": ["standard", "fast"]},
+    "gpt-5.6-sol": {"input": "100", "cachedInput": "10", "output": "500", "supportedSpeeds": ["standard"]},
+    "gpt-5.6-terra": {"input": "50", "cachedInput": "5", "output": "300", "supportedSpeeds": ["standard"]},
+    "gpt-5.6-luna": {"input": "5", "cachedInput": "0.5", "output": "30", "supportedSpeeds": ["standard"]}
+  },
+  "purchasedCreditMultipliers": {"standard": "1", "fast": "2", "ultrafast": "6"},
+  "separateCacheWriteCharge": false,
+  "reasoningEffortMultiplier": null,
+  "includedAllowanceConversion": null,
+  "dollarsPerCredit": null,
+  "notes": [
+    "This is the Codex credit rate card, not API pricing.",
+    "High effort has no separately published flat rate in this card; preserve observed token usage and effort metadata.",
+    "Included subscription allowance multipliers differ from purchased credits and cannot be inferred from this card.",
+    "Only speed/model combinations explicitly verified here are enabled; older models remain Standard-only in this snapshot, not a claim that other speeds never exist.",
+    "Credit purchase prices and discounts depend on plan/agreement; no dollar conversion is assumed.",
+    "Local same-token repricing is a counterfactual proxy, not measured avoided Codex spend or weekly quota saved."
+  ]
+}

@@ -29,3 +29,8 @@ then optional parallel/tool/cancellation routes as described in SETUP.md. Report
 what actually passed, the missing dependencies, and exact remaining blockers.
 Remove the reference launch guard only after the selected route has been adapted,
 reviewed and tested. Do not equate replacement of placeholders with acceptance.
+
+Read [the shared Codex-credit report policy](../../docs/codex-credit-report.md).
+Preserve its explicit-input, offline reporting contract and private output handling.
+Keep Codex-credit estimates separate from API-dollar comparisons and measured
+savings; state unavailable usage or unknown billing basis without guessing.

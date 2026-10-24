@@ -78,6 +78,21 @@ guidance, not measured savings or proof of historical avoidable skips.
 
 ## Dispatch and acceptance safeguards
 
+Keep every supplied source and test file frozen until its request reaches a
+terminal outcome; supplied read-only tests are hash-bound too. Use the host-provided
+temporary directory for writable test fixtures, not the read-only checkout. Treat
+source-change rejection, sandbox failure, and model/code defects as distinct
+outcomes. Never relax guards to make a test pass or duplicate a still-running job.
+
+For complete code-file proposals, explicitly size maxOutputTokens for the expected
+code plus structured response, within the worker's validated context/output limits.
+The inference default of 4096 can truncate a useful full-file response. Split an
+oversized packet or provide an adequate bounded allowance; do not raise global
+model profiles. A finish_reason=length is output-budget exhaustion, not proof of
+bad code or malformed schema. Preserve known rejected-response usage and later
+attempt overhead separately. Do not redo already completed primary work to obtain
+a successful local receipt.
+
 Choose the execution contract from the deliverable:
 
 - Read-only analysis from supplied sources: use inference, no allowedFiles,
@@ -130,3 +145,19 @@ protected local stores or inherited environment variables, never in worker promp
 or repository files. Allow fallback only within the user's selected mode; otherwise
 return the precise blocker to the primary. Local review does not replace required
 native acceptance review, and no local output authorizes publishing or deployment.
+
+## Resolve the configured worker runtime
+
+For an existing worker CLI fallback, parse only the selected Advisor MCP server's
+arguments in the active Codex configuration; for the advisor_local registration,
+this is mcp_servers.advisor_local.args. Do not print the entire configuration.
+Resolve the exact bin/advisor-local-mcp.mjs entrypoint and its sibling
+bin/advisor-local.mjs; reject missing or ambiguous entrypoints. Use that qualified
+configured release rather than an arbitrary development checkout.
+
+Verify fresh status version and loaded/disk digest before relying on a repair.
+A native-only change also requires the helper hash or exact reviewed release
+identity. A source checkout can contain older or unreviewed behavior despite its
+files being present. Preserve it and resident models while resolving the installed
+route. The source kit's guarded launchers still require local adaptation and
+qualification before use.

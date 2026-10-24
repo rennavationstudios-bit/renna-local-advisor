@@ -1,6 +1,6 @@
 {
   "name": "sol-advisor",
-  "version": "0.8.1+renna.4",
+  "version": "0.8.1+renna.5",
   "description": "Codex-native selective routing plus an explicit-only UltraBurn mode for bounded high-compute engineering runs.",
   "author": {"name": "Daniel McAteer", "url": "https://github.com/DannyMac180"},
   "homepage": "https://github.com/DannyMac180/sol-advisor#readme",

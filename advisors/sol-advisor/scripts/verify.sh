@@ -190,7 +190,7 @@ test ! -e "$retired_contract" || fail "retired separate workflow contract remain
 pass "required files present and retired contract absent"
 
 jq empty "$manifest"
-[ "$(jq -r '.version' "$manifest")" = 0.8.1+renna.4 ] || fail "manifest version is not 0.8.1+renna.4"
+[ "$(jq -r '.version' "$manifest")" = 0.8.1+renna.5 ] || fail "manifest version is not 0.8.1+renna.5"
 grep -Fq 'SELECTIVE ROUTE' "$manifest" || fail "manifest omits route declaration"
 grep -Fq 'solo is the default' "$manifest" || fail "manifest omits solo default"
 grep -Fq 'delegate may select role-pinned GPT-6 Luna / Max and Terra / High' "$manifest" || fail "manifest omits delegate role contract"
@@ -198,7 +198,7 @@ grep -Fq 'audit uses a fresh read-only GPT-6.1 Sol / High review' "$manifest" ||
 grep -Fq 'full uses the useful set of selected implementers' "$manifest" || fail "manifest omits dynamic full contract"
 grep -Fq 'fails closed' "$manifest" || fail "manifest omits fail-closed evidence rule"
 grep -Fq 'explicit-only UltraBurn' "$manifest" || fail "manifest omits explicit UltraBurn boundary"
-pass "manifest JSON, v0.8.1+renna.4 local build, dynamic routing, and explicit UltraBurn"
+pass "manifest JSON, v0.8.1+renna.5 local build, dynamic routing, and explicit UltraBurn"
 
 "$python_bin" - "$templates" <<'PY'
 from pathlib import Path
@@ -775,4 +775,4 @@ sh -n "$primary_runtime_inspector"
 sh -n "$script_dir/verify.sh"
 pass "shell syntax"
 
-printf '%s\n' "VERIFY PASSED: Sol Advisor v0.8.1+renna.4 dynamic routing and UltraBurn checks completed in $tmp_dir"
+printf '%s\n' "VERIFY PASSED: Sol Advisor v0.8.1+renna.5 dynamic routing and UltraBurn checks completed in $tmp_dir"

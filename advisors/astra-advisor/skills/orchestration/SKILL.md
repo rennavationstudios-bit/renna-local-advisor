@@ -115,7 +115,20 @@ model/effort with their evidence source; if unavailable say `unobservable`. If t
 differ from the request, show both. A submitted request is not runtime confirmation.
 Keep progress readable; report meaningful changes without polling narration.
 
-At the completion of **every task**, even solo, failed, or blocked tasks, emit an
+For ChatGPT-authenticated work, use the shared Codex-credit closing report in
+[the shared Codex-credit report policy](../../../../docs/codex-credit-report.md). This takes precedence
+over the historical API-equivalent receipt for that billing basis. Both Astra and
+Sol report observed local outcomes, token coverage, partial/discarded work and
+repair overhead; delivery alone is not acceptance. Same-token Codex-credit repricing
+is an estimate, never measured cash savings or included allowance saved. Missing
+usage remains unknown. Persist the report with task outputs and link it from the
+existing checkpoint. If the helper or usage is unavailable, state that limit;
+do not substitute API dollars or build a telemetry/account-query workaround.
+For explicitly requested API-equivalent analysis or actual API work, retain the
+separate historical API calculator and its provenance/coverage requirements.
+An unknown billing basis must be labelled unknown, not guessed.
+
+For explicitly requested API analysis or actual API work, at task completion emit an
 `API-EQUIVALENT COST RECEIPT` using the calculator described in the operations
 reference, or a precise unavailable status when usage cannot be observed. Capture
 available usage with source, unique call IDs, agent identity, and scope as work runs.

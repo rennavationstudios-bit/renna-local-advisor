@@ -152,9 +152,24 @@ requested settings, runtime observations, result evidence, and any usage source.
 Native metadata may expose neither realized settings nor billing-grade usage; say so.
 No API keys, external inference CLIs, billing-account queries, or dashboard are needed.
 
-## API-equivalent receipt policy
+## Codex-credit reporting for ChatGPT-authenticated work
 
-Every task completion requires a visible receipt, including a task with no delegation
+For ChatGPT-authenticated work, use the shared Codex-credit closing report in
+[the shared Codex-credit report policy](../../../../../docs/codex-credit-report.md). This takes precedence
+over the historical API-equivalent receipt for that billing basis. Both Astra and
+Sol report observed local outcomes, token coverage, partial/discarded work and
+repair overhead; delivery alone is not acceptance. Same-token Codex-credit repricing
+is an estimate, never measured cash savings or included allowance saved. Missing
+usage remains unknown. Persist the report with task outputs and link it from the
+existing checkpoint. If the helper or usage is unavailable, state that limit;
+do not substitute API dollars or build a telemetry/account-query workaround.
+For explicitly requested API-equivalent analysis or actual API work, retain the
+separate historical API calculator and its provenance/coverage requirements.
+An unknown billing basis must be labelled unknown, not guessed.
+
+## Legacy API-equivalent receipt policy (API basis only)
+
+For API-basis reporting, task completion requires a visible receipt, including a task with no delegation
 or no accessible token telemetry. The calculator is Python standard library only:
 [calculator](../../../scripts/cost_receipt.py),
 [pricing snapshot](../../../pricing/2026-09-04.json).

@@ -33,6 +33,12 @@ anything. There is no need to reproduce the author's network or hardware.
    preserve other plugins. Do not install both a stock and customized copy with
    colliding identities. Confirm model/effort prerequisites in each Advisor skill;
    preserve the selected primary and report a mismatch without changing it.
+   For an existing worker CLI fallback, resolve the exact MCP entrypoint from
+   the selected server's active configuration arguments and use its sibling CLI.
+   Reject missing or ambiguous entrypoints. Verify fresh status version and
+   loaded/disk digest; native-only changes also require helper-hash or exact
+   reviewed-release evidence. A source checkout's presence does not establish
+   which runtime is active. Preserve the reviewed runtime and resident models.
 
 ## Minimum acceptance before enabling a route
 
@@ -66,6 +72,17 @@ counts or filler jobs. Prefer inference from supplied sources when sufficient;
 enable a tool loop only for actual file discovery, edits or tests. Keep native
 independent acceptance reviews required by the selected Advisor. Local failure
 does not authorize a cloud call in a local-only task, nor a model/service change.
+
+Freeze supplied source and test files until each request finishes. Put writable
+test fixtures in the host-provided temporary directory. For full-file proposals,
+set an adequate bounded output allowance within the worker's validated limits or
+split the packet; an output-length stop is distinct from a code or harness defect.
+
+Use the [Codex-credit closing-report policy](docs/codex-credit-report.md) for
+ChatGPT-authenticated work. The bundled helper reads explicit metadata only; keep
+real inputs/reports in ignored private task outputs, and disclose unknown billing
+basis, usage gaps, discarded work and repair overhead. Qualifying the runtime does
+not require billing-account access or new inference just to produce a report.
 
 ## Before publishing your adapted copy
 

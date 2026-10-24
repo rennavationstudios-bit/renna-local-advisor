@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "comparison": { "model": "gpt-6-astra", "speed": "standard" },
+  "receipts": [
+    {
+      "id": "attempt-1", "workId": "example-module", "worker": "Local A", "model": "local-example",
+      "status": "FAILED", "disposition": "discarded", "runtimeMs": 12000,
+      "usage": { "inputTokens": 1000, "outputTokens": 100, "cachedInputTokens": null }
+    },
+    {
+      "id": "attempt-2", "workId": "example-module", "repairOf": "attempt-1", "worker": "Local A", "model": "local-example",
+      "status": "DELIVERED", "disposition": "accepted", "runtimeMs": 20000,
+      "usage": { "inputTokens": 100000, "outputTokens": 10000, "cachedInputTokens": 0, "reasoningTokens": 2000 },
+      "effort": "high"
+    },
+    {
+      "id": "attempt-3", "workId": "example-review", "worker": "Local B", "model": "local-example",
+      "status": "DELIVERED", "disposition": "pending", "runtimeMs": null,
+      "usage": { "inputTokens": null, "outputTokens": 300, "cachedInputTokens": null }
+    }
+  ]
+}
